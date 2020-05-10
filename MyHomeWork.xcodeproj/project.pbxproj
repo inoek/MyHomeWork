@@ -3,19 +3,34 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C76C51E17178A093F578484B /* Pods_MyHomeWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CDCC1E6FFDA85B5DD7D08E /* Pods_MyHomeWork.framework */; };
+		E55BC819246724CA0014DA4C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */; };
+		E55BC81B246728FD0014DA4C /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */; };
+		E55BC81D24672AB30014DA4C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81C24672AB30014DA4C /* Model.swift */; };
+		E55BC81F246731940014DA4C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81E246731940014DA4C /* StorageManager.swift */; };
 		E55EAECD2465E53B00F1292F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAECC2465E53B00F1292F /* AppDelegate.swift */; };
 		E55EAECF2465E53B00F1292F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAECE2465E53B00F1292F /* SceneDelegate.swift */; };
 		E55EAED12465E53B00F1292F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAED02465E53B00F1292F /* ViewController.swift */; };
 		E55EAED42465E53B00F1292F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55EAED22465E53B00F1292F /* Main.storyboard */; };
 		E55EAED62465E54400F1292F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E55EAED52465E54400F1292F /* Assets.xcassets */; };
 		E55EAED92465E54400F1292F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55EAED72465E54400F1292F /* LaunchScreen.storyboard */; };
+		E55EAEE12465E98F00F1292F /* CurrentTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAEE02465E98F00F1292F /* CurrentTasks.swift */; };
+		E55EAEE32465E9EA00F1292F /* TransitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAEE22465E9EA00F1292F /* TransitViewController.swift */; };
+		E55EAEE72465ED8D00F1292F /* CurrentTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAEE62465ED8D00F1292F /* CurrentTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22CDCC1E6FFDA85B5DD7D08E /* Pods_MyHomeWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHomeWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC82FD6FEAB4C382857AB54 /* Pods-MyHomeWork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHomeWork.debug.xcconfig"; path = "Target Support Files/Pods-MyHomeWork/Pods-MyHomeWork.debug.xcconfig"; sourceTree = "<group>"; };
+		A00111611EEA650F1788011C /* Pods-MyHomeWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHomeWork.release.xcconfig"; path = "Target Support Files/Pods-MyHomeWork/Pods-MyHomeWork.release.xcconfig"; sourceTree = "<group>"; };
+		E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
+		E55BC81C24672AB30014DA4C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E55BC81E246731940014DA4C /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		E55EAEC92465E53B00F1292F /* MyHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E55EAECC2465E53B00F1292F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E55EAECE2465E53B00F1292F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +39,9 @@
 		E55EAED52465E54400F1292F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E55EAED82465E54400F1292F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E55EAEDA2465E54400F1292F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E55EAEE02465E98F00F1292F /* CurrentTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasks.swift; sourceTree = "<group>"; };
+		E55EAEE22465E9EA00F1292F /* TransitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitViewController.swift; sourceTree = "<group>"; };
+		E55EAEE62465ED8D00F1292F /* CurrentTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +49,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C76C51E17178A093F578484B /* Pods_MyHomeWork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		067602C2BEB9F401DEFBBB2D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CC82FD6FEAB4C382857AB54 /* Pods-MyHomeWork.debug.xcconfig */,
+				A00111611EEA650F1788011C /* Pods-MyHomeWork.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		46276C8EF39A30A687A9A72C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22CDCC1E6FFDA85B5DD7D08E /* Pods_MyHomeWork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E55EAEC02465E53B00F1292F = {
 			isa = PBXGroup;
 			children = (
 				E55EAECB2465E53B00F1292F /* MyHomeWork */,
 				E55EAECA2465E53B00F1292F /* Products */,
+				067602C2BEB9F401DEFBBB2D /* Pods */,
+				46276C8EF39A30A687A9A72C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +97,13 @@
 				E55EAECC2465E53B00F1292F /* AppDelegate.swift */,
 				E55EAECE2465E53B00F1292F /* SceneDelegate.swift */,
 				E55EAED02465E53B00F1292F /* ViewController.swift */,
+				E55EAEE02465E98F00F1292F /* CurrentTasks.swift */,
+				E55EAEE22465E9EA00F1292F /* TransitViewController.swift */,
+				E55EAEE62465ED8D00F1292F /* CurrentTaskViewController.swift */,
+				E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */,
+				E55BC81C24672AB30014DA4C /* Model.swift */,
+				E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */,
+				E55BC81E246731940014DA4C /* StorageManager.swift */,
 				E55EAED22465E53B00F1292F /* Main.storyboard */,
 				E55EAED52465E54400F1292F /* Assets.xcassets */,
 				E55EAED72465E54400F1292F /* LaunchScreen.storyboard */,
@@ -74,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E55EAEDD2465E54400F1292F /* Build configuration list for PBXNativeTarget "MyHomeWork" */;
 			buildPhases = (
+				08285CE038D3658101FEAFB0 /* [CP] Check Pods Manifest.lock */,
 				E55EAEC52465E53B00F1292F /* Sources */,
 				E55EAEC62465E53B00F1292F /* Frameworks */,
 				E55EAEC72465E53B00F1292F /* Resources */,
+				D0EC58B957C00C13FC0F15DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +180,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		08285CE038D3658101FEAFB0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyHomeWork-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0EC58B957C00C13FC0F15DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyHomeWork/Pods-MyHomeWork-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyHomeWork/Pods-MyHomeWork-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyHomeWork/Pods-MyHomeWork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E55EAEC52465E53B00F1292F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E55BC81D24672AB30014DA4C /* Model.swift in Sources */,
 				E55EAED12465E53B00F1292F /* ViewController.swift in Sources */,
+				E55EAEE32465E9EA00F1292F /* TransitViewController.swift in Sources */,
 				E55EAECD2465E53B00F1292F /* AppDelegate.swift in Sources */,
+				E55BC819246724CA0014DA4C /* CustomTableViewCell.swift in Sources */,
+				E55EAEE12465E98F00F1292F /* CurrentTasks.swift in Sources */,
 				E55EAECF2465E53B00F1292F /* SceneDelegate.swift in Sources */,
+				E55BC81F246731940014DA4C /* StorageManager.swift in Sources */,
+				E55BC81B246728FD0014DA4C /* AddNewTaskViewController.swift in Sources */,
+				E55EAEE72465ED8D00F1292F /* CurrentTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +378,7 @@
 		};
 		E55EAEDE2465E54400F1292F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CC82FD6FEAB4C382857AB54 /* Pods-MyHomeWork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +397,7 @@
 		};
 		E55EAEDF2465E54400F1292F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A00111611EEA650F1788011C /* Pods-MyHomeWork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
