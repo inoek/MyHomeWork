@@ -94,22 +94,54 @@
 		E55EAECB2465E53B00F1292F /* MyHomeWork */ = {
 			isa = PBXGroup;
 			children = (
-				E55EAECC2465E53B00F1292F /* AppDelegate.swift */,
-				E55EAECE2465E53B00F1292F /* SceneDelegate.swift */,
-				E55EAED02465E53B00F1292F /* ViewController.swift */,
-				E55EAEE02465E98F00F1292F /* CurrentTasks.swift */,
-				E55EAEE22465E9EA00F1292F /* TransitViewController.swift */,
-				E55EAEE62465ED8D00F1292F /* CurrentTaskViewController.swift */,
-				E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */,
-				E55BC81C24672AB30014DA4C /* Model.swift */,
-				E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */,
-				E55BC81E246731940014DA4C /* StorageManager.swift */,
-				E55EAED22465E53B00F1292F /* Main.storyboard */,
-				E55EAED52465E54400F1292F /* Assets.xcassets */,
-				E55EAED72465E54400F1292F /* LaunchScreen.storyboard */,
+				E58B9B14246846A500D3D302 /* Controllers */,
+				E58B9B112468466800D3D302 /* Model */,
+				E58B9B122468467D00D3D302 /* Supported Files */,
+				E58B9B132468469100D3D302 /* Helpers */,
 				E55EAEDA2465E54400F1292F /* Info.plist */,
 			);
 			path = MyHomeWork;
+			sourceTree = "<group>";
+		};
+		E58B9B112468466800D3D302 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E55BC81C24672AB30014DA4C /* Model.swift */,
+				E55BC81E246731940014DA4C /* StorageManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E58B9B122468467D00D3D302 /* Supported Files */ = {
+			isa = PBXGroup;
+			children = (
+				E55EAECC2465E53B00F1292F /* AppDelegate.swift */,
+				E55EAECE2465E53B00F1292F /* SceneDelegate.swift */,
+				E55EAED22465E53B00F1292F /* Main.storyboard */,
+				E55EAED52465E54400F1292F /* Assets.xcassets */,
+				E55EAED72465E54400F1292F /* LaunchScreen.storyboard */,
+			);
+			path = "Supported Files";
+			sourceTree = "<group>";
+		};
+		E58B9B132468469100D3D302 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E55EAEE22465E9EA00F1292F /* TransitViewController.swift */,
+				E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E58B9B14246846A500D3D302 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E55EAED02465E53B00F1292F /* ViewController.swift */,
+				E55EAEE02465E98F00F1292F /* CurrentTasks.swift */,
+				E55EAEE62465ED8D00F1292F /* CurrentTaskViewController.swift */,
+				E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

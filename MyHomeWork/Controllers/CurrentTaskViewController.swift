@@ -15,33 +15,37 @@ class CurrentTaskViewController: UIViewController {
     
     @IBOutlet weak var table: UITableView!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         savedTracks = realm.objects(Task.self)
         //table.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
-        
-
+        table.tableFooterView = UIView()
     }
-
+    
+    
+    
+    
+    //MARK: -Navigation
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
-        guard let addTaskVC = segue.source as? AddNewTaskViewController else {return}
-//        newPLaceVC.savePlace()
+        guard segue.source is AddNewTaskViewController else {return}
+        //        newPLaceVC.savePlace()
         
         table.reloadData()
     }
-
-
+    
+    
 }
 
-
+//MARK: -TableView setup
 extension CurrentTaskViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return savedTracks.isEmpty ? 0 : savedTracks.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
@@ -58,6 +62,18 @@ extension CurrentTaskViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    //удаляем объект из базы данных и интерфейса
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let task = savedTracks[indexPath.row]
+        let delete = UIContextualAction(style: .normal, title: "Удалить") { (_, _, _) in
+            StorageManager.deleteObject(task)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        delete.backgroundColor = .systemRed
+        
+        return UISwipeActionsConfiguration(actions: [delete])
     }
     
 }

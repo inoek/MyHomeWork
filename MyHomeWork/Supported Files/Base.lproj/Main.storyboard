@@ -17,7 +17,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Домашние работы" id="yr4-i8-qUb"/>
+                    <tabBarItem key="tabBarItem" title="" image="Task" id="yr4-i8-qUb"/>
                     <navigationItem key="navigationItem" title="Домашняя работа" id="NWp-jX-De6"/>
                     <connections>
                         <segue destination="kGl-SR-hDd" kind="presentation" destinationCreationSelector="transitSegue:" modalPresentationStyle="fullScreen" id="7en-Wy-OPP"/>
@@ -78,6 +78,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="NIY-Y4-KNQ"/>
                     </view>
+                    <tabBarItem key="tabBarItem" image="HWIcon" id="XUN-Dd-CIP"/>
                     <navigationItem key="navigationItem" title="Текущие задачи" id="n0r-Ak-WTL">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="o7y-lL-Y1g">
                             <connections>
@@ -85,6 +86,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="table" destination="hPe-BD-TfR" id="aAJ-Iv-2Qk"/>
                     </connections>
@@ -101,20 +103,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название дисциплины" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Zs-bE-ehX">
-                                <rect key="frame" x="20" y="130" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Задание" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9wp-wr-44H">
-                                <rect key="frame" x="20" y="194" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6g-2S-drQ">
                                 <rect key="frame" x="110" y="525" width="174" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -130,11 +118,26 @@
                                     <segue destination="nWX-z7-wD6" kind="unwind" unwindAction="unwindSegue:" id="xQI-Yw-CvK"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название дисциплины" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Zs-bE-ehX">
+                                <rect key="frame" x="20" y="275" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Задание" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9wp-wr-44H">
+                                <rect key="frame" x="20" y="339" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.72953695060000001" green="0.73286491629999995" blue="0.75295138360000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="MPT-6i-ohL"/>
                     </view>
                     <connections>
+                        <outlet property="addTaskOutlet" destination="U6g-2S-drQ" id="Bdf-hI-16m"/>
                         <outlet property="subtitleLabel" destination="9wp-wr-44H" id="387-uZ-W8N"/>
                         <outlet property="titleLable" destination="0Zs-bE-ehX" id="afj-91-ihk"/>
                     </connections>
@@ -147,7 +150,9 @@
         <!--Hosting Controller-->
         <scene sceneID="2eC-uq-FRP">
             <objects>
-                <hostingController id="kGl-SR-hDd" sceneMemberID="viewController"/>
+                <hostingController id="kGl-SR-hDd" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </hostingController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLO-MQ-wrg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2912" y="-441"/>
@@ -172,12 +177,13 @@
             </objects>
             <point key="canvasLocation" x="844.92753623188412" y="112.5"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="XWc-zX-ucU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j8k-9q-HGb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="M9I-7q-ccT"/>
+                    <tabBarItem key="tabBarItem" title="" id="djW-Nh-UEq"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J3Y-Gd-A0I">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -193,6 +199,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="HWIcon" width="32" height="32"/>
+        <image name="Task" width="30" height="30"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
