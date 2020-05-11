@@ -8,16 +8,35 @@
 
 import RealmSwift
 
-class Task: Object {
+class Category: Object {
 
-    @objc dynamic var category: String?
     @objc dynamic var name = ""
+    @objc dynamic var redColor: Float = 0.0
+    @objc dynamic var greenColor: Float = 0.0
+    @objc dynamic var blueColor: Float = 0.0
+    @objc dynamic var numberOfCategory: Int = 0
 
-
-    convenience init(category: String?, name: String) {//инициализатор модели
+    convenience init(name: String, redColor: Float, greenColor: Float, blueColor: Float, numberOfCategory: Int) {//инициализатор модели
         self.init()//вызываем инициализатор класса
         self.name = name
-        self.category = category
+        self.redColor = redColor
+        self.greenColor = greenColor
+        self.blueColor = blueColor
+        self.numberOfCategory = numberOfCategory
     }
 
 }
+
+class Task: Object {
+    @objc dynamic var name = ""
+    @objc dynamic var definision: String?
+    @objc dynamic var numberOfCategory: Int = 0
+    convenience init(name: String, definision: String?, numberOfCategory: Int) {//инициализатор модели
+        self.init()//вызываем инициализатор класса
+        self.name = name
+
+        self.numberOfCategory = numberOfCategory
+    }
+}
+
+

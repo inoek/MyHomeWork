@@ -12,12 +12,24 @@ let realm = try! Realm()
 
 class StorageManager {
     
-    static func saveObject(_ task: Task) {
+    static func saveObject(_ category: Category) {
+        try! realm.write {
+            realm.add(category)
+        }
+    }
+    static func deleteObject(_ category: Category) {
+        
+        try! realm.write {
+            realm.delete(category)
+        }
+    }
+    
+    static func saveTask(_ task: Task) {
         try! realm.write {
             realm.add(task)
         }
     }
-    static func deleteObject(_ task: Task) {
+    static func deleteTask(_ task: Task) {
         
         try! realm.write {
             realm.delete(task)

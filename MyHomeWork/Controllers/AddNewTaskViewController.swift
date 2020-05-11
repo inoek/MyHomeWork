@@ -11,6 +11,12 @@ import RealmSwift
 
 class AddNewTaskViewController: UIViewController {
     
+    private var savedCategories: Results<Category>!
+    
+    var redColor: Float = 1.0
+    var greenColor: Float = 1.0
+    var blueColor: Float = 0.0
+    
     @IBOutlet weak var titleLable: UITextField!
     
     @IBOutlet weak var subtitleLabel: UITextField!
@@ -19,6 +25,8 @@ class AddNewTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        savedCategories = realm.objects(Category.self)
         
         addTaskOutlet.isEnabled = false
         
@@ -54,13 +62,26 @@ class AddNewTaskViewController: UIViewController {
     
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         if subtitleLabel.text != "" {
-            let   newTask = Task(category: titleLable.text, name: subtitleLabel.text!)
+
+            var category = Category()
+            var countOfCategory: Int = 0
+            for i in savedCategories {
+                countOfCategory = i.numberOfCategory
+            }
+            
+            let newTask = Category(name: subtitleLabel.text!, redColor: redColor, greenColor: greenColor, blueColor: blueColor, numberOfCategory: countOfCategory + 1)
+            
             StorageManager.saveObject(newTask)
             
         }
         
     }
     
+    @IBAction func greenButtonTapped(_ sender: UIButton) {
+        redColor = 0.0
+        greenColor = 1.0
+        blueColor = 0.0
+    }
     
     
 }
