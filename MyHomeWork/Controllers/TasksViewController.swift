@@ -26,18 +26,29 @@ class TasksViewController: UIViewController {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addButtonTapped(_ sender: UIButton) {
+        if number > 0 {
+            let newTask = Task(name: "Нажмите сюда...", definision: "", numberOfCategory: number)
+            
+            StorageManager.saveTask(newTask)
+            table.reloadData()
+        }
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//               if segue.identifier == "showTasks" {
+//             if let taskVC = segue.destination as? TasksViewController {
+//                 if num > 0 {
+//                    taskVC.number = num
+//                     print("num is \(num)")
+//                 }
+//             }
+//         }
+    }
 
 }
+
+
 extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,6 +65,12 @@ extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                table.deselectRow(at: indexPath, animated: true)
+
+        self.performSegue(withIdentifier: "editTasks", sender: self)
     }
     
     //удаляем объект из базы данных и интерфейса

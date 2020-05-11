@@ -78,9 +78,38 @@ class AddNewTaskViewController: UIViewController {
     }
     
     @IBAction func greenButtonTapped(_ sender: UIButton) {
-        redColor = 0.0
-        greenColor = 1.0
-        blueColor = 0.0
+        //green
+        switch sender.tag {
+        case 1://красный
+            redColor = 1.0
+            greenColor = 0.0
+            blueColor = 0.0
+        case 2://зелённый
+            redColor = 0.0
+            greenColor = 1.0
+            blueColor = 0.0
+        case 3://коричневый
+            redColor = 0.6
+            greenColor = 0.4
+            blueColor = 0.2
+        case 4://бирюзовый
+            redColor = 0.0
+            greenColor = 1.0
+            blueColor = 1.0
+        case 5://маджента
+            redColor = 1.0
+            greenColor = 0.0
+            blueColor = 1.0
+        case 6://оранжевый
+            redColor = 1.0
+            greenColor = 0.5
+            blueColor = 0.0
+        default:
+            redColor = 1.0
+            greenColor = 1.0
+            blueColor = 0.0
+        }
+        
     }
     
     
