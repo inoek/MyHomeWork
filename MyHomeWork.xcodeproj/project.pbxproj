@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C76C51E17178A093F578484B /* Pods_MyHomeWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CDCC1E6FFDA85B5DD7D08E /* Pods_MyHomeWork.framework */; };
+		E5264F6D246885160045A671 /* ContexTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5264F6C246885160045A671 /* ContexTestViewController.swift */; };
 		E55BC819246724CA0014DA4C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */; };
 		E55BC81B246728FD0014DA4C /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */; };
 		E55BC81D24672AB30014DA4C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81C24672AB30014DA4C /* Model.swift */; };
@@ -27,6 +28,7 @@
 		22CDCC1E6FFDA85B5DD7D08E /* Pods_MyHomeWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHomeWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC82FD6FEAB4C382857AB54 /* Pods-MyHomeWork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHomeWork.debug.xcconfig"; path = "Target Support Files/Pods-MyHomeWork/Pods-MyHomeWork.debug.xcconfig"; sourceTree = "<group>"; };
 		A00111611EEA650F1788011C /* Pods-MyHomeWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHomeWork.release.xcconfig"; path = "Target Support Files/Pods-MyHomeWork/Pods-MyHomeWork.release.xcconfig"; sourceTree = "<group>"; };
+		E5264F6C246885160045A671 /* ContexTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContexTestViewController.swift; sourceTree = "<group>"; };
 		E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
 		E55BC81C24672AB30014DA4C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				E55EAEE02465E98F00F1292F /* CurrentTasks.swift */,
 				E55EAEE62465ED8D00F1292F /* CurrentTaskViewController.swift */,
 				E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */,
+				E5264F6C246885160045A671 /* ContexTestViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				E55BC819246724CA0014DA4C /* CustomTableViewCell.swift in Sources */,
 				E55EAEE12465E98F00F1292F /* CurrentTasks.swift in Sources */,
 				E55EAECF2465E53B00F1292F /* SceneDelegate.swift in Sources */,
+				E5264F6D246885160045A671 /* ContexTestViewController.swift in Sources */,
 				E55BC81F246731940014DA4C /* StorageManager.swift in Sources */,
 				E55BC81B246728FD0014DA4C /* AddNewTaskViewController.swift in Sources */,
 				E55EAEE72465ED8D00F1292F /* CurrentTaskViewController.swift in Sources */,

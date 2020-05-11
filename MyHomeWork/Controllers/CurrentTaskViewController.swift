@@ -36,6 +36,7 @@ class CurrentTaskViewController: UIViewController {
     }
     
     
+    
 }
 
 //MARK: -TableView setup
@@ -46,6 +47,11 @@ extension CurrentTaskViewController: UITableViewDelegate, UITableViewDataSource 
         return savedTracks.isEmpty ? 0 : savedTracks.count
     }
     
+//    func colorForIndex(_ index: Int) -> UIColor {
+//        let itemCount = savedTracks.count - 1
+//        let val = (CGFloat(index) / CGFloat(itemCount)) * 1.6
+//        return UIColor(red: 1.0, green: val, blue: 0.0, alpha: 1.0)
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
@@ -56,12 +62,18 @@ extension CurrentTaskViewController: UITableViewDelegate, UITableViewDataSource 
         //cell.textLabel?.text = "w"
         cell.categoryLabel.text = task.category
         cell.nameLabel.text = task.name
+        //cell.backgroundColor = colorForIndex(indexPath.row)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 90
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        table.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: "test", sender: self)
     }
     
     //удаляем объект из базы данных и интерфейса
