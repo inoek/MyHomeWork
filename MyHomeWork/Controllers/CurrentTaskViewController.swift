@@ -107,15 +107,19 @@ extension CurrentTaskViewController: UITableViewDelegate, UITableViewDataSource 
         let numberOfCat = category.numberOfCategory
         
         savedTasks = realm.objects(Task.self).filter("numberOfCategory == \(numberOfCat)")
-        var task = Task()
+        var task = [Task]()
 
         for i in savedTasks {
-            task = i
+            task.append(i)
         }
         
         let delete = UIContextualAction(style: .normal, title: "Удалить") { (_, _, _) in
             StorageManager.deleteObject(category)
-            StorageManager.deleteTask(task)
+           // StorageManager.deleteTask(task)
+            try! realm.write {
+                realm.delete(task)
+            }
+            
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
             
