@@ -15,6 +15,7 @@ class CurrentCategoriesViewController: UIViewController {
     private var savedTasks: Results<Task>!
     
     var num = 0
+    var idd = 0
     
     @IBOutlet weak var table: UITableView!
     
@@ -23,6 +24,7 @@ class CurrentCategoriesViewController: UIViewController {
         super.viewDidLoad()
         
         savedCategories = realm.objects(Category.self)
+        
         
         if savedCategories.isEmpty {
             let defaultCategory = Category(name: "Неподшитые записи", redColor: 1.0, greenColor: 1.0, blueColor: 0.0, numberOfCategory: 1)
@@ -50,7 +52,7 @@ class CurrentCategoriesViewController: UIViewController {
             if let taskVC = segue.destination as? TasksViewController {
                 if num > 0 {
                    taskVC.number = num
-                    print("num is \(num)")
+ //                   taskVC.id = idd
                 }
             }
         }
@@ -102,7 +104,20 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         table.deselectRow(at: indexPath, animated: true)
         var category = Category()
         category = savedCategories[indexPath.row]
+        
+ //       let numberOfCat = category.numberOfCategory
+        
+ //       savedTasks = realm.objects(Task.self).filter("numberOfCategory == \(numberOfCat)")
+//        if savedTasks.isEmpty != true {
+//            var task = Task()
+//            task = savedTasks[indexPath.row]
+//
+//            idd = task.ID
+//        }
+
         num = category.numberOfCategory
+
+
         self.performSegue(withIdentifier: "showTasks", sender: self)
     }
     

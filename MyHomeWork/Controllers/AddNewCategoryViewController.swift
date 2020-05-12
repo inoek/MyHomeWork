@@ -28,6 +28,7 @@ class AddNewCategoryViewController: UIViewController {
         
         savedCategories = realm.objects(Category.self)
         
+        
         addTaskOutlet.isEnabled = false
         
         //функция из расширения для скрытия клавиатуры
@@ -65,9 +66,10 @@ class AddNewCategoryViewController: UIViewController {
 
             var category = Category()
             var countOfCategory: Int = 0
-            for i in savedCategories {
-                countOfCategory = i.numberOfCategory
-            }
+//            for i in savedCategories {
+//                countOfCategory = i.numberOfCategory
+//            }
+            countOfCategory = savedCategories.count
             
             let newTask = Category(name: subtitleLabel.text!, redColor: redColor, greenColor: greenColor, blueColor: blueColor, numberOfCategory: countOfCategory + 1)
             

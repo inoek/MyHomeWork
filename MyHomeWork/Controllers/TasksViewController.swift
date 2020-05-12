@@ -12,6 +12,11 @@ import RealmSwift
 class TasksViewController: UIViewController {
     
     var number = 0
+    var id = 0
+    var categoryOfEditingTask = 0
+    
+    var titleOfTask: String = ""
+    var definision: String?
     
     var tasks = Task()
     
@@ -23,12 +28,17 @@ class TasksViewController: UIViewController {
         
         savedTasks = realm.objects(Task.self).filter("numberOfCategory == \(number)")
         
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        //table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
         if number > 0 {
-            let newTask = Task(name: "Нажмите сюда...", definision: "", numberOfCategory: number)
+        let    currentTasks = realm.objects(Task.self)
+
+            var taskID = currentTasks.count
+            
+            
+            let newTask = Task(ID: taskID + 1, name: "Нажмите сюда...", definision: "", numberOfCategory: number)
             
             StorageManager.saveTask(newTask)
             table.reloadData()
@@ -36,14 +46,20 @@ class TasksViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//               if segue.identifier == "showTasks" {
-//             if let taskVC = segue.destination as? TasksViewController {
-//                 if num > 0 {
-//                    taskVC.number = num
-//                     print("num is \(num)")
-//                 }
-//             }
-//         }
+        if segue.identifier == "editTasks" {
+            if let editVC = segue.destination as? ContexTestViewController {
+                editVC.titleTask = titleOfTask
+                editVC.definisionTask = definision ?? ""
+                editVC.id = id
+                editVC.categoryOfEditingTask = categoryOfEditingTask
+            }
+        }
+    }
+    
+    
+    override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+        
+        table.reloadData()
     }
 
 }
@@ -56,19 +72,33 @@ extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+                let cell3 = table.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TasksTableViewCell
         
         var task = Task()
         task = savedTasks[indexPath.row]
         
-        cell.textLabel?.text = task.name
+        cell3.titleLabel.text = task.name
+        cell3.definisionLabel.text = task.definision
         
-        return cell
+ 
+        
+        //cell.textLabel?.text = task.name
+        
+        return cell3
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 table.deselectRow(at: indexPath, animated: true)
+        var task = Task()
+
+        task = savedTasks[indexPath.row]
+        
+        
+        titleOfTask = task.name
+        definision = task.definision
+        id = task.ID
+        categoryOfEditingTask = task.numberOfCategory
 
         self.performSegue(withIdentifier: "editTasks", sender: self)
     }

@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ContexTestViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var definisionTextField: UITextField!
+    
+    var titleTask = ""
+    var definisionTask = ""
+    
+    var id = 0
+    var categoryOfEditingTask = 0
+    
+    private var currentTask: Results<Task>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleTextField.text = titleTask
+        definisionTextField.text = definisionTask
+        
+        currentTask = realm.objects(Task.self).filter("ID == \(id)")
         
         let interaction = UIContextMenuInteraction(delegate: self)
         imageView.addInteraction(interaction)
@@ -21,16 +38,20 @@ class ContexTestViewController: UIViewController {
         
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    @IBAction func saveTask(_ sender: UIButton) {
+        
+       // var taskID = savedTasks.count
+        
+        
+        if let task = currentTask.first {
+            try! realm.write {
+                task.name = titleTextField.text ?? ""
+                task.definision = definisionTextField.text
+            }
+        }
+       // table.reloadData()
+        
+    }
     
 }
 

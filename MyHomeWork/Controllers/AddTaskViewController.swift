@@ -13,6 +13,9 @@ class AddTaskViewController: UIViewController {
 
     private var savedCategories: Results<Category>!
     
+    private var savedTasks: Results<Task>!
+
+    
     var catNum = 0
 
 
@@ -25,6 +28,9 @@ class AddTaskViewController: UIViewController {
         super.viewDidLoad()
         
         savedCategories = realm.objects(Category.self)
+        
+        savedTasks = realm.objects(Task.self)
+
        // table.register(NewTaskTableViewCell.self, forCellReuseIdentifier: "Cell")
        // table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
@@ -36,8 +42,11 @@ class AddTaskViewController: UIViewController {
 
 
                 var task = Task()
+            
+            var taskID = savedTasks.count
+
                 
-            let newTask = Task(name: textField.text!, definision: "", numberOfCategory: catNum)
+            let newTask = Task(ID: taskID + 1, name: textField.text!, definision: "", numberOfCategory: catNum)
                 
                 StorageManager.saveTask(newTask)
             
