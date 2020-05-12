@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CurrentTaskViewController: UIViewController {
+class CurrentCategoriesViewController: UIViewController {
     
     private var savedCategories: Results<Category>!
     private var savedTasks: Results<Task>!
@@ -24,6 +24,12 @@ class CurrentTaskViewController: UIViewController {
         
         savedCategories = realm.objects(Category.self)
         
+        if savedCategories.isEmpty {
+            let defaultCategory = Category(name: "Неподшитые записи", redColor: 1.0, greenColor: 1.0, blueColor: 0.0, numberOfCategory: 1)
+            
+            StorageManager.saveObject(defaultCategory)
+        }
+        
         //table.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
         table.tableFooterView = UIView()
     }
@@ -33,7 +39,7 @@ class CurrentTaskViewController: UIViewController {
     
     //MARK: -Navigation
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
-        guard segue.source is AddNewTaskViewController else {return}
+        //guard segue.source is AddNewCategoryViewController  else {return}
         //        newPLaceVC.savePlace()
         
         table.reloadData()
@@ -55,7 +61,7 @@ class CurrentTaskViewController: UIViewController {
 }
 
 //MARK: -TableView setup
-extension CurrentTaskViewController: UITableViewDelegate, UITableViewDataSource {
+extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -89,7 +95,7 @@ extension CurrentTaskViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 70
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -112,6 +118,9 @@ extension CurrentTaskViewController: UITableViewDelegate, UITableViewDataSource 
         for i in savedTasks {
             task.append(i)
         }
+        
+        
+        guard numberOfCat > 1 else { return nil }
         
         let delete = UIContextualAction(style: .normal, title: "Удалить") { (_, _, _) in
             StorageManager.deleteObject(category)

@@ -30,7 +30,7 @@
         <!--Текущие задачи-->
         <scene sceneID="u9x-QI-V8h">
             <objects>
-                <viewController id="peE-a4-PhO" customClass="CurrentTaskViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="peE-a4-PhO" customClass="CurrentCategoriesViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FPp-N9-uuN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,15 +41,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="90" id="b54-Rt-cBJ" customClass="CustomTableViewCell" customModule="MyHomeWork" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="b54-Rt-cBJ" customClass="CustomTableViewCell" customModule="MyHomeWork" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b54-Rt-cBJ" id="MNE-dk-rJZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QVR-zQ-cfS">
-                                                    <rect key="frame" x="20" y="11" width="374" height="36"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="b2L-y9-zgR"/>
                                                     </constraints>
@@ -58,19 +58,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="56r-Cw-BGt">
-                                                    <rect key="frame" x="20" y="55" width="374" height="29"/>
+                                                    <rect key="frame" x="20" y="33" width="374" height="26"/>
                                                     <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QVR-zQ-cfS" firstAttribute="top" secondItem="MNE-dk-rJZ" secondAttribute="topMargin" id="CdU-mL-ZkB"/>
+                                                <constraint firstItem="QVR-zQ-cfS" firstAttribute="top" secondItem="MNE-dk-rJZ" secondAttribute="topMargin" constant="-11" id="CdU-mL-ZkB"/>
                                                 <constraint firstAttribute="trailing" secondItem="QVR-zQ-cfS" secondAttribute="trailing" constant="20" id="G8U-lv-fqy"/>
                                                 <constraint firstItem="56r-Cw-BGt" firstAttribute="trailing" secondItem="QVR-zQ-cfS" secondAttribute="trailing" id="OQU-9U-M44"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="56r-Cw-BGt" secondAttribute="bottom" constant="-5" id="TAH-Xl-pjV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="56r-Cw-BGt" secondAttribute="bottom" id="TAH-Xl-pjV"/>
                                                 <constraint firstItem="QVR-zQ-cfS" firstAttribute="leading" secondItem="MNE-dk-rJZ" secondAttribute="leading" constant="20" id="Tfn-4W-Fim"/>
-                                                <constraint firstItem="56r-Cw-BGt" firstAttribute="top" secondItem="QVR-zQ-cfS" secondAttribute="bottom" constant="8" id="arq-rh-AoT"/>
+                                                <constraint firstItem="56r-Cw-BGt" firstAttribute="top" secondItem="QVR-zQ-cfS" secondAttribute="bottom" constant="-3" id="arq-rh-AoT"/>
                                                 <constraint firstItem="56r-Cw-BGt" firstAttribute="leading" secondItem="QVR-zQ-cfS" secondAttribute="leading" id="fok-Ud-h54"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -153,10 +153,10 @@
             </objects>
             <point key="canvasLocation" x="4369.5652173913049" y="583.92857142857144"/>
         </scene>
-        <!--Add New Task View Controller-->
+        <!--Add New Category View Controller-->
         <scene sceneID="hli-yi-dLr">
             <objects>
-                <viewController id="BCQ-Qi-8Q9" customClass="AddNewTaskViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BCQ-Qi-8Q9" customClass="AddNewCategoryViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ygi-wt-4wY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,7 +173,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addTaskButtonTapped:" destination="BCQ-Qi-8Q9" eventType="touchUpInside" id="Pat-iq-Vdu"/>
-                                    <segue destination="nWX-z7-wD6" kind="unwind" unwindAction="unwindSegue:" id="xQI-Yw-CvK"/>
+                                    <segue destination="nWX-z7-wD6" kind="unwind" unwindAction="unwindSegue:" id="tMn-fi-NEU"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название дисциплины" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Zs-bE-ehX">
@@ -296,10 +296,10 @@
             </objects>
             <point key="canvasLocation" x="2912" y="-441"/>
         </scene>
-        <!--Add Category View Controller-->
+        <!--Add Task View Controller-->
         <scene sceneID="HeT-2Q-AnI">
             <objects>
-                <viewController id="f9f-zo-aRD" customClass="AddCategoryViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="f9f-zo-aRD" customClass="AddTaskViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CnO-LN-8l0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -357,6 +357,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="f9f-zo-aRD" eventType="touchUpInside" id="IbK-Oj-Nin"/>
+                                    <segue destination="OdQ-jW-3Zz" kind="unwind" unwindAction="unwindSegue:" id="kJp-72-PNc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -369,6 +370,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Veb-gM-BeD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="OdQ-jW-3Zz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3924.6376811594205" y="-185.49107142857142"/>
         </scene>

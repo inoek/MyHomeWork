@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C76C51E17178A093F578484B /* Pods_MyHomeWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CDCC1E6FFDA85B5DD7D08E /* Pods_MyHomeWork.framework */; };
-		E50A65E224696ADA00C659FD /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A65E124696ADA00C659FD /* AddCategoryViewController.swift */; };
+		E50A65E224696ADA00C659FD /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A65E124696ADA00C659FD /* AddTaskViewController.swift */; };
 		E5264F6D246885160045A671 /* ContexTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5264F6C246885160045A671 /* ContexTestViewController.swift */; };
 		E55BC819246724CA0014DA4C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */; };
-		E55BC81B246728FD0014DA4C /* AddNewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */; };
+		E55BC81B246728FD0014DA4C /* AddNewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81A246728FD0014DA4C /* AddNewCategoryViewController.swift */; };
 		E55BC81D24672AB30014DA4C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81C24672AB30014DA4C /* Model.swift */; };
 		E55BC81F246731940014DA4C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81E246731940014DA4C /* StorageManager.swift */; };
 		E55EAECD2465E53B00F1292F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAECC2465E53B00F1292F /* AppDelegate.swift */; };
@@ -22,7 +22,7 @@
 		E55EAED92465E54400F1292F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55EAED72465E54400F1292F /* LaunchScreen.storyboard */; };
 		E55EAEE12465E98F00F1292F /* CurrentTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAEE02465E98F00F1292F /* CurrentTasks.swift */; };
 		E55EAEE32465E9EA00F1292F /* TransitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAEE22465E9EA00F1292F /* TransitViewController.swift */; };
-		E55EAEE72465ED8D00F1292F /* CurrentTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAEE62465ED8D00F1292F /* CurrentTaskViewController.swift */; };
+		E55EAEE72465ED8D00F1292F /* CurrentCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAEE62465ED8D00F1292F /* CurrentCategoriesViewController.swift */; };
 		E5C69F0B24697DA100314E73 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C69F0A24697DA100314E73 /* TasksViewController.swift */; };
 		E5C69F0D24698A7E00314E73 /* NewTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C69F0C24698A7E00314E73 /* NewTaskTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -31,10 +31,10 @@
 		22CDCC1E6FFDA85B5DD7D08E /* Pods_MyHomeWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHomeWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC82FD6FEAB4C382857AB54 /* Pods-MyHomeWork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHomeWork.debug.xcconfig"; path = "Target Support Files/Pods-MyHomeWork/Pods-MyHomeWork.debug.xcconfig"; sourceTree = "<group>"; };
 		A00111611EEA650F1788011C /* Pods-MyHomeWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHomeWork.release.xcconfig"; path = "Target Support Files/Pods-MyHomeWork/Pods-MyHomeWork.release.xcconfig"; sourceTree = "<group>"; };
-		E50A65E124696ADA00C659FD /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
+		E50A65E124696ADA00C659FD /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		E5264F6C246885160045A671 /* ContexTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContexTestViewController.swift; sourceTree = "<group>"; };
 		E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewController.swift; sourceTree = "<group>"; };
+		E55BC81A246728FD0014DA4C /* AddNewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCategoryViewController.swift; sourceTree = "<group>"; };
 		E55BC81C24672AB30014DA4C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E55BC81E246731940014DA4C /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		E55EAEC92465E53B00F1292F /* MyHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,7 +47,7 @@
 		E55EAEDA2465E54400F1292F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E55EAEE02465E98F00F1292F /* CurrentTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTasks.swift; sourceTree = "<group>"; };
 		E55EAEE22465E9EA00F1292F /* TransitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitViewController.swift; sourceTree = "<group>"; };
-		E55EAEE62465ED8D00F1292F /* CurrentTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTaskViewController.swift; sourceTree = "<group>"; };
+		E55EAEE62465ED8D00F1292F /* CurrentCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCategoriesViewController.swift; sourceTree = "<group>"; };
 		E5C69F0A24697DA100314E73 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		E5C69F0C24698A7E00314E73 /* NewTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,11 +147,11 @@
 			children = (
 				E55EAED02465E53B00F1292F /* ViewController.swift */,
 				E55EAEE02465E98F00F1292F /* CurrentTasks.swift */,
-				E55EAEE62465ED8D00F1292F /* CurrentTaskViewController.swift */,
-				E55BC81A246728FD0014DA4C /* AddNewTaskViewController.swift */,
-				E5264F6C246885160045A671 /* ContexTestViewController.swift */,
-				E50A65E124696ADA00C659FD /* AddCategoryViewController.swift */,
+				E55EAEE62465ED8D00F1292F /* CurrentCategoriesViewController.swift */,
+				E55BC81A246728FD0014DA4C /* AddNewCategoryViewController.swift */,
+				E50A65E124696ADA00C659FD /* AddTaskViewController.swift */,
 				E5C69F0A24697DA100314E73 /* TasksViewController.swift */,
+				E5264F6C246885160045A671 /* ContexTestViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -281,10 +281,10 @@
 				E55EAEE12465E98F00F1292F /* CurrentTasks.swift in Sources */,
 				E55EAECF2465E53B00F1292F /* SceneDelegate.swift in Sources */,
 				E5264F6D246885160045A671 /* ContexTestViewController.swift in Sources */,
-				E50A65E224696ADA00C659FD /* AddCategoryViewController.swift in Sources */,
+				E50A65E224696ADA00C659FD /* AddTaskViewController.swift in Sources */,
 				E55BC81F246731940014DA4C /* StorageManager.swift in Sources */,
-				E55BC81B246728FD0014DA4C /* AddNewTaskViewController.swift in Sources */,
-				E55EAEE72465ED8D00F1292F /* CurrentTaskViewController.swift in Sources */,
+				E55BC81B246728FD0014DA4C /* AddNewCategoryViewController.swift in Sources */,
+				E55EAEE72465ED8D00F1292F /* CurrentCategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
