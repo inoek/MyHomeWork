@@ -51,7 +51,7 @@ class ContexTestViewController: UIViewController {
         if let task = currentTask.first {
             try! realm.write {
                 task.name = titleTextField.text ?? ""
-                task.definision = definisionTextField.text
+                task.definision = definisionTextField.text ?? ""
             }
             dismiss(animated: true, completion: nil)
         }
