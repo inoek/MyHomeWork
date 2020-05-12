@@ -86,8 +86,8 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         category = savedCategories[indexPath.row]
         
         
-        cell.categoryLabel.text = "w"
-        cell.nameLabel.text = category.name
+        cell.categoryLabel.text = category.name
+        //cell.nameLabel.text = category.name
         cell.backgroundColor = UIColor(red: CGFloat(category.redColor), green: CGFloat(category.greenColor), blue: CGFloat(category.blueColor), alpha: 1.0)
         
         //cell.textLabel?.text = "w"

@@ -28,7 +28,7 @@ class TasksViewController: UIViewController {
         
         savedTasks = realm.objects(Task.self).filter("numberOfCategory == \(number)")
         
-        //table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        //table.register(NewTaskTableViewCell.self, forCellReuseIdentifier: "editTasks")
     }
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
@@ -86,6 +86,10 @@ extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
         
         return cell3
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
