@@ -13,6 +13,8 @@ class ContexTestViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    var delegate: updateTable?
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var definisionTextField: UITextField!
     
@@ -27,6 +29,8 @@ class ContexTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         titleTextField.text = titleTask
         definisionTextField.text = definisionTask
         
@@ -36,21 +40,26 @@ class ContexTestViewController: UIViewController {
         imageView.addInteraction(interaction)
         imageView.isUserInteractionEnabled = true
         
-    }
-    
+        }
+        
+
     @IBAction func saveTask(_ sender: UIButton) {
         
        // var taskID = savedTasks.count
         
-        
+
         if let task = currentTask.first {
             try! realm.write {
                 task.name = titleTextField.text ?? ""
                 task.definision = definisionTextField.text
             }
+            dismiss(animated: true, completion: nil)
         }
-       // table.reloadData()
+        delegate?.tableReloadData()
         
+    }
+    @IBAction func exitTap(_ sender: UIButton) {
+      dismiss(animated: true, completion: nil)
     }
     
 }
@@ -76,4 +85,15 @@ extension ContexTestViewController: UIContextMenuInteractionDelegate {
     }
     
     
+}
+extension ContexTestViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddNewCategoryViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

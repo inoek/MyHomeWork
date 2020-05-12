@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hSv-FX-hu4">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -66,7 +66,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="categoryLabel" destination="QVR-zQ-cfS" id="ftT-4i-JfL"/>
-                                            <segue destination="rhz-e0-sZQ" kind="presentation" identifier="showTasks" trigger="accessoryAction" modalPresentationStyle="automatic" id="u5G-5r-Gzx"/>
+                                            <segue destination="rhz-e0-sZQ" kind="show" identifier="showTasks" trigger="accessoryAction" id="u5G-5r-Gzx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -81,7 +81,7 @@
                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="25"/>
                                 <state key="normal" title="Добавьте новое задание"/>
                                 <connections>
-                                    <segue destination="f9f-zo-aRD" kind="presentation" id="7DT-DP-wuR"/>
+                                    <segue destination="X0l-Vm-bhh" kind="presentation" id="7DT-DP-wuR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -92,7 +92,7 @@
                     <navigationItem key="navigationItem" title="Текущие задачи" id="n0r-Ak-WTL">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="b7Y-3o-SO1">
                             <connections>
-                                <segue destination="BCQ-Qi-8Q9" kind="presentation" identifier="addTasks" id="oO5-dv-cBL"/>
+                                <segue destination="iFY-xr-E3Z" kind="presentation" identifier="addTasks" modalPresentationStyle="fullScreen" id="oO5-dv-cBL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -110,7 +110,7 @@
             <objects>
                 <viewController id="rhz-e0-sZQ" customClass="TasksViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9fr-nj-x04">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tbA-fK-SS0">
@@ -144,7 +144,7 @@
                                         <connections>
                                             <outlet property="definisionLabel" destination="0lQ-h5-lYB" id="69e-wn-I8y"/>
                                             <outlet property="titleLabel" destination="6Q0-vr-kvq" id="olX-8j-qKa"/>
-                                            <segue destination="CFL-gH-w63" kind="presentation" identifier="editTasks" trigger="accessoryAction" id="lVt-UT-btL"/>
+                                            <segue destination="CFL-gH-w63" kind="presentation" identifier="editTasks" trigger="accessoryAction" modalPresentationStyle="fullScreen" id="lVt-UT-btL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -165,6 +165,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="V8I-QT-Skn"/>
                     </view>
+                    <navigationItem key="navigationItem" id="hAx-OL-vws"/>
                     <connections>
                         <outlet property="table" destination="tbA-fK-SS0" id="ykz-ke-cFq"/>
                     </connections>
@@ -173,22 +174,25 @@
             </objects>
             <point key="canvasLocation" x="4369.5652173913049" y="583.92857142857144"/>
         </scene>
-        <!--Add New Category View Controller-->
+        <!--Создание категории-->
         <scene sceneID="hli-yi-dLr">
             <objects>
                 <viewController id="BCQ-Qi-8Q9" customClass="AddNewCategoryViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ygi-wt-4wY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6g-2S-drQ">
-                                <rect key="frame" x="107" y="587" width="174" height="90"/>
+                            <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6g-2S-drQ">
+                                <rect key="frame" x="110" y="608" width="174" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.90980392160000001" green="0.27058823529999998" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Создать категорию">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -196,134 +200,187 @@
                                     <segue destination="nWX-z7-wD6" kind="unwind" unwindAction="unwindSegue:" id="tMn-fi-NEU"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название дисциплины" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Zs-bE-ehX">
-                                <rect key="frame" x="20" y="275" width="374" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Задание" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9wp-wr-44H">
-                                <rect key="frame" x="20" y="339" width="374" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHW-8c-gxu">
-                                <rect key="frame" x="20" y="425" width="102" height="49"/>
+                            <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Категория" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9wp-wr-44H">
+                                <rect key="frame" x="20" y="499" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textField>
+                            <button opaque="NO" alpha="0.80000000000000004" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHW-8c-gxu">
+                                <rect key="frame" x="20" y="275" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="greenButtonTapped:" destination="BCQ-Qi-8Q9" eventType="touchUpInside" id="cQN-vv-WDU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6h-mf-WHQ">
-                                <rect key="frame" x="156" y="425" width="102" height="49"/>
+                            <button opaque="NO" alpha="0.80000000000000004" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6h-mf-WHQ">
+                                <rect key="frame" x="117" y="275" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="greenButtonTapped:" destination="BCQ-Qi-8Q9" eventType="touchUpInside" id="jBe-gr-b9j"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9M-CB-AhD">
-                                <rect key="frame" x="299" y="425" width="102" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="greenButtonTapped:" destination="BCQ-Qi-8Q9" eventType="touchUpInside" id="vON-RA-fmY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-RO-dcJ">
-                                <rect key="frame" x="299" y="511" width="102" height="49"/>
+                                <rect key="frame" x="117" y="400" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="greenButtonTapped:" destination="BCQ-Qi-8Q9" eventType="touchUpInside" id="UpQ-nD-U1T"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDN-Rs-Yd2">
-                                <rect key="frame" x="20" y="511" width="102" height="49"/>
+                                <rect key="frame" x="310" y="275" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="greenButtonTapped:" destination="BCQ-Qi-8Q9" eventType="touchUpInside" id="3s1-ew-bBe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhN-5X-hcf">
-                                <rect key="frame" x="156" y="510" width="102" height="49"/>
+                                <rect key="frame" x="20" y="400" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="greenButtonTapped:" destination="BCQ-Qi-8Q9" eventType="touchUpInside" id="wxH-BY-kRq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9M-CB-AhD">
+                                <rect key="frame" x="210" y="275" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="greenButtonTapped:" destination="BCQ-Qi-8Q9" eventType="touchUpInside" id="vON-RA-fmY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaH-nw-I2a">
+                                <rect key="frame" x="210" y="400" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="greenButtonTapped:" destination="BCQ-Qi-8Q9" eventType="touchUpInside" id="6kB-ZQ-D44"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaN-dQ-Mbc">
+                                <rect key="frame" x="310" y="400" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="greenButtonTapped:" destination="BCQ-Qi-8Q9" eventType="touchUpInside" id="1TR-he-AD0"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.3442091048" green="0.72290641069999995" blue="0.96082264179999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="0Zs-bE-ehX" firstAttribute="leading" secondItem="9wp-wr-44H" secondAttribute="leading" id="5QN-2i-K8c"/>
-                            <constraint firstItem="0Zs-bE-ehX" firstAttribute="trailing" secondItem="9wp-wr-44H" secondAttribute="trailing" id="Cn6-3J-dtE"/>
-                            <constraint firstItem="9wp-wr-44H" firstAttribute="top" secondItem="0Zs-bE-ehX" secondAttribute="bottom" constant="30" id="Fqr-pF-mpm"/>
-                            <constraint firstItem="0Zs-bE-ehX" firstAttribute="trailing" secondItem="Ygi-wt-4wY" secondAttribute="trailingMargin" id="Htr-js-M2q"/>
-                            <constraint firstItem="0Zs-bE-ehX" firstAttribute="top" secondItem="MPT-6i-ohL" secondAttribute="top" constant="275" id="gwY-52-wNd"/>
-                            <constraint firstItem="0Zs-bE-ehX" firstAttribute="leading" secondItem="Ygi-wt-4wY" secondAttribute="leadingMargin" id="szU-iX-rxi"/>
-                        </constraints>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="MPT-6i-ohL"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Создание категории" id="4H6-AK-xyP">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.turn.up.left" catalog="system" id="Bjs-Kf-TaV">
+                            <connections>
+                                <segue destination="nWX-z7-wD6" kind="unwind" unwindAction="unwindSegue:" id="DDT-Wf-2sR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addTaskOutlet" destination="U6g-2S-drQ" id="Bdf-hI-16m"/>
                         <outlet property="subtitleLabel" destination="9wp-wr-44H" id="387-uZ-W8N"/>
-                        <outlet property="titleLable" destination="0Zs-bE-ehX" id="afj-91-ihk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9b-Sw-RM8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="nWX-z7-wD6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3891" y="-125"/>
+            <point key="canvasLocation" x="4800" y="-125.22321428571428"/>
         </scene>
         <!--Contex Test View Controller-->
         <scene sceneID="YTN-Ib-cIg">
             <objects>
                 <viewController storyboardIdentifier="MyViewController" id="CFL-gH-w63" customClass="ContexTestViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hGs-YD-vF8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="B716C4E5-5207-467F-8CCA-160F0F990D0E_1_105_c" translatesAutoresizingMaskIntoConstraints="NO" id="MvU-2G-0bA">
                                 <rect key="frame" x="97" y="59" width="220" height="248"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="njH-QN-IKg">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="njH-QN-IKg">
                                 <rect key="frame" x="20" y="378" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cec-Dd-Jys">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Описание" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cec-Dd-Jys">
                                 <rect key="frame" x="20" y="431" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6m-PP-Ps0">
-                                <rect key="frame" x="147" y="639" width="120" height="59"/>
+                                <rect key="frame" x="223" y="499" width="120" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.90980392160000001" green="0.27058823529999998" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Сохранить"/>
                                 <connections>
                                     <action selector="saveTask:" destination="CFL-gH-w63" eventType="touchUpInside" id="yqW-iz-8BW"/>
-                                    <segue destination="SRu-BU-gYd" kind="unwind" unwindAction="unwindSegue:" id="IhS-qy-UQk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGn-D2-JeS">
+                                <rect key="frame" x="56" y="501" width="106" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Отмена"/>
+                                <connections>
+                                    <action selector="exitTap:" destination="CFL-gH-w63" eventType="touchUpInside" id="gCQ-2z-yJb"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="tGz-wt-rtJ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0Qs-wf-byy"/>
                     <connections>
                         <outlet property="definisionTextField" destination="cec-Dd-Jys" id="0O9-G5-Prf"/>
                         <outlet property="imageView" destination="MvU-2G-0bA" id="wAM-Lp-XHS"/>
@@ -331,9 +388,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNK-4L-WzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="SRu-BU-gYd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5808.6956521739139" y="209.59821428571428"/>
+            <point key="canvasLocation" x="6718.840579710145" y="209.59821428571428"/>
         </scene>
         <!--Hosting Controller-->
         <scene sceneID="2eC-uq-FRP">
@@ -345,43 +401,51 @@
             </objects>
             <point key="canvasLocation" x="2912" y="-441"/>
         </scene>
-        <!--Add Task View Controller-->
+        <!--Быстрое добавление задачи-->
         <scene sceneID="HeT-2Q-AnI">
             <objects>
-                <viewController id="f9f-zo-aRD" customClass="AddTaskViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="f9f-zo-aRD" customClass="QuikTaskViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CnO-LN-8l0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1P4-zs-cBd">
-                                <rect key="frame" x="20" y="67" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1P4-zs-cBd">
+                                <rect key="frame" x="20" y="274" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Описание" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hs9-16-pqH">
+                                <rect key="frame" x="20" y="324" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIJ-vr-BJM">
-                                <rect key="frame" x="173" y="522" width="68" height="55"/>
+                                <rect key="frame" x="162" y="517" width="90" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Добавить">
                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="f9f-zo-aRD" eventType="touchUpInside" id="IbK-Oj-Nin"/>
-                                    <segue destination="OdQ-jW-3Zz" kind="unwind" unwindAction="unwindSegue:" id="kJp-72-PNc"/>
+                                    <segue destination="OdQ-jW-3Zz" kind="unwind" unwindAction="unwindSegue:" id="KSa-ps-sCN"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="EFs-Og-FC0"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Быстрое добавление задачи" id="A3p-v7-sLy"/>
                     <connections>
-                        <outlet property="textField" destination="1P4-zs-cBd" id="Umc-5j-pid"/>
+                        <outlet property="definisionTextField" destination="hs9-16-pqH" id="sdl-ab-PTh"/>
+                        <outlet property="titleTextField" destination="1P4-zs-cBd" id="1bi-xR-7mW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Veb-gM-BeD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="OdQ-jW-3Zz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3954" y="1279"/>
+            <point key="canvasLocation" x="4862.3188405797109" y="1278.3482142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="L8F-nS-ZhW">
@@ -395,8 +459,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="j8k-9q-HGb" kind="relationship" relationship="viewControllers" id="zv0-SQ-LyF"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="RSL-hk-j4q"/>
+                        <segue destination="j8k-9q-HGb" kind="relationship" relationship="viewControllers" id="9bt-Lv-H5L"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="j0E-Xk-8tD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XeC-x3-Eio" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -423,11 +487,48 @@
             </objects>
             <point key="canvasLocation" x="1886" y="467"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0tZ-Xe-o3u">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iFY-xr-E3Z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yis-9C-1wO">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BCQ-Qi-8Q9" kind="relationship" relationship="rootViewController" id="1ie-31-KRz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mBq-kK-fkC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3889.8550724637685" y="-125.22321428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="guT-UQ-MIp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X0l-Vm-bhh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nXu-mH-co1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f9f-zo-aRD" kind="relationship" relationship="rootViewController" id="swR-SP-4UN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ntN-Ou-KHy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3953.6231884057975" y="1278.3482142857142"/>
+        </scene>
     </scenes>
     <resources>
         <image name="B716C4E5-5207-467F-8CCA-160F0F990D0E_1_105_c" width="768" height="1024"/>
         <image name="HWIcon" width="32" height="32"/>
         <image name="Task" width="30" height="30"/>
+        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

@@ -9,7 +9,17 @@
 import UIKit
 import RealmSwift
 
-class TasksViewController: UIViewController {
+protocol updateTable {
+ func tableReloadData()
+}
+
+class TasksViewController: UIViewController, updateTable {
+
+    func tableReloadData() {
+        table.reloadData()
+    }
+    
+    
     
     var number = 0
     var id = 0
@@ -52,15 +62,14 @@ class TasksViewController: UIViewController {
                 editVC.definisionTask = definision ?? ""
                 editVC.id = id
                 editVC.categoryOfEditingTask = categoryOfEditingTask
+                editVC.delegate = self
             }
         }
     }
     
+
     
-    override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
-        
-        table.reloadData()
-    }
+
 
 }
 
@@ -80,7 +89,6 @@ extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
         cell3.titleLabel.text = task.name
         cell3.definisionLabel.text = task.definision
         
- 
         
         //cell.textLabel?.text = task.name
         

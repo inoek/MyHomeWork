@@ -9,8 +9,12 @@
 import UIKit
 import RealmSwift
 
-class AddTaskViewController: UIViewController {
+class QuikTaskViewController: UIViewController {
 
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var definisionTextField: UITextField!
+    
     private var savedCategories: Results<Category>!
     
     private var savedTasks: Results<Task>!
@@ -46,54 +50,16 @@ class AddTaskViewController: UIViewController {
             var taskID = savedTasks.count
 
                 
-            let newTask = Task(ID: taskID + 1, name: textField.text!, definision: "", numberOfCategory: 1)
+            let newTask = Task(ID: taskID + 1, name: titleTextField.text!, definision: definisionTextField.text, numberOfCategory: 1)
                 
                 StorageManager.saveTask(newTask)
             
+
         }
-        
+        dismiss(animated: true, completion: nil)
+
     }
+
     
 }
     
-//extension AddTaskViewController: UITableViewDelegate ,UITableViewDataSource {
-//    
-//        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//            
-//            return savedCategories.isEmpty ? 0 : savedCategories.count
-//        }
-//        
-//
-//        
-//
-//        
-//        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//            let cell2 = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NewTaskTableViewCell
-//            
-//            var category = Category()
-//            category = savedCategories[indexPath.row]
-//            
-//
-//                cell2.fLabel.text = "w"
-//                cell2.sLabel.text = category.name
-//                cell2.backgroundColor = UIColor(red: CGFloat(category.redColor), green: CGFloat(category.greenColor), blue: CGFloat(category.blueColor), alpha: 1.0)
-//            
-//
-//
-//            return cell2
-//        }
-//        
-//        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//            return 90
-//        }
-//        
-//        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//            table.deselectRow(at: indexPath, animated: true)
-//            var category = Category()
-//            category = savedCategories[indexPath.row]
-//           // print(category.numberOfCategory)
-//            catNum = category.numberOfCategory
-//        }
-//    
-//}

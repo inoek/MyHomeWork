@@ -25,6 +25,11 @@ class CurrentCategoriesViewController: UIViewController {
         
         savedCategories = realm.objects(Category.self)
         
+//        if let font = UIFont(name: "DIN Condensed", size: 22) {
+//
+//            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font]
+//
+//        }
         
         if savedCategories.isEmpty {
             let defaultCategory = Category(name: "Неподшитые записи", redColor: 1.0, greenColor: 1.0, blueColor: 0.0, numberOfCategory: 1)
@@ -41,7 +46,7 @@ class CurrentCategoriesViewController: UIViewController {
     
     //MARK: -Navigation
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
-        //guard segue.source is AddNewCategoryViewController  else {return}
+        guard segue.source is AddNewCategoryViewController  else {return}
         //        newPLaceVC.savePlace()
         
         table.reloadData()
@@ -88,7 +93,7 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         
         cell.categoryLabel.text = category.name
         //cell.nameLabel.text = category.name
-        cell.backgroundColor = UIColor(red: CGFloat(category.redColor), green: CGFloat(category.greenColor), blue: CGFloat(category.blueColor), alpha: 1.0)
+        cell.backgroundColor = UIColor(red: CGFloat(category.redColor), green: CGFloat(category.greenColor), blue: CGFloat(category.blueColor), alpha: 0.6)
         
         //cell.textLabel?.text = "w"
         
@@ -154,3 +159,30 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
     }
     
 }
+//extension UIButton {
+//    
+//    func startAnimatingPressActions() {
+//        addTarget(self, action: #selector(animateDown), for: [.touchDown, .touchDragEnter])
+//        addTarget(self, action: #selector(animateUp), for: [.touchDragExit, .touchCancel, .touchUpInside, .touchUpOutside])
+//    }
+//    
+//    @objc private func animateDown(sender: UIButton) {
+//        animate(sender, transform: CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95))
+//    }
+//    
+//    @objc private func animateUp(sender: UIButton) {
+//        animate(sender, transform: .identity)
+//    }
+//    
+//    private func animate(_ button: UIButton, transform: CGAffineTransform) {
+//        UIView.animate(withDuration: 0.4,
+//                       delay: 0,
+//                       usingSpringWithDamping: 0.5,
+//                       initialSpringVelocity: 3,
+//                       options: [.curveEaseInOut],
+//                       animations: {
+//                        button.transform = transform
+//            }, completion: nil)
+//    }
+//    
+//}

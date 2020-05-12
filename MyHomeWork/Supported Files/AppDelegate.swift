@@ -32,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     // And will update the schema on disk automatically
                 }
             })
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont(name: "DIN Condensed", size: 25)!
+        ]
 
         // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = config
