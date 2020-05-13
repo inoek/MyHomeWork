@@ -10,15 +10,16 @@ import UIKit
 import RealmSwift
 
 protocol updateTable {
- func tableReloadData()
+    func tableReloadData()
 }
 
 class TasksViewController: UIViewController, updateTable {
-
+    
     func tableReloadData() {
         table.reloadData()
     }
     
+    @IBOutlet weak var categoryLabel: UILabel!
     
     
     var number = 0
@@ -28,27 +29,38 @@ class TasksViewController: UIViewController, updateTable {
     var titleOfTask: String = ""
     var definision: String?
     
+    var red: Float = 0.0
+    var green: Float = 0.0
+    var blue: Float = 0.0
+    
+    var categoryTitle = ""
+
+    
     var tasks = Task()
     
     private var savedTasks: Results<Task>!
-
+    
     @IBOutlet weak var table: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         savedTasks = realm.objects(Task.self).filter("numberOfCategory == \(number)")
         
+        categoryLabel.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 0.6)
+        categoryLabel.text = categoryTitle
+        
+        
         //table.register(NewTaskTableViewCell.self, forCellReuseIdentifier: "editTasks")
     }
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
         if number > 0 {
-        let    currentTasks = realm.objects(Task.self)
-
+            let    currentTasks = realm.objects(Task.self)
+            
             var taskID = currentTasks.count
             
             
-            let newTask = Task(ID: taskID + 1, name: "Нажмите сюда...", definision: "", numberOfCategory: number)
+            let newTask = Task(ID: taskID + 1, name: "Нажмите сюда...", definision: "", numberOfCategory: number, completed: false)
             
             StorageManager.saveTask(newTask)
             table.reloadData()
@@ -69,8 +81,8 @@ class TasksViewController: UIViewController, updateTable {
     
 
     
-
-
+    
+    
 }
 
 
@@ -81,13 +93,18 @@ extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell3 = table.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TasksTableViewCell
+        let cell3 = table.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TasksTableViewCell
         
         var task = Task()
         task = savedTasks[indexPath.row]
         
         cell3.titleLabel.text = task.name
         cell3.definisionLabel.text = task.definision
+        if task.completed {
+            cell3.completeImageView.alpha = 0.3
+        } else if task.completed == false {
+            cell3.completeImageView.alpha = 0
+        }
         
         
         //cell.textLabel?.text = task.name
@@ -101,9 +118,9 @@ extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                table.deselectRow(at: indexPath, animated: true)
+        table.deselectRow(at: indexPath, animated: true)
         var task = Task()
-
+        
         task = savedTasks[indexPath.row]
         
         
@@ -111,7 +128,7 @@ extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
         definision = task.definision
         id = task.ID
         categoryOfEditingTask = task.numberOfCategory
-
+        
         self.performSegue(withIdentifier: "editTasks", sender: self)
     }
     
@@ -129,5 +146,26 @@ extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [delete])
     }
     
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        let task = savedTasks[indexPath.row]
+        let copmplete = UIContextualAction(style: .normal, title: "Выполнено") { (_, _, _) in
+
+            if task.completed == false {
+                try! realm.write {
+                    task.completed = true
+                }
+            } else if task.completed {
+                try! realm.write {
+                    task.completed = false
+                }
+            }
+            tableView.reloadData()
+        }
+        copmplete.backgroundColor = .systemGreen
+        
+        return UISwipeActionsConfiguration(actions: [copmplete])
+    }
     
 }

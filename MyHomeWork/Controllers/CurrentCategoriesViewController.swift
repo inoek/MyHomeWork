@@ -17,6 +17,11 @@ class CurrentCategoriesViewController: UIViewController {
     var num = 0
     var idd = 0
     
+    var red: Float = 0.0
+    var green: Float = 0.0
+    var blue: Float = 0.0
+    var categoryTitle = ""
+    
     @IBOutlet weak var table: UITableView!
     
     
@@ -57,7 +62,10 @@ class CurrentCategoriesViewController: UIViewController {
             if let taskVC = segue.destination as? TasksViewController {
                 if num > 0 {
                    taskVC.number = num
- //                   taskVC.id = idd
+                    taskVC.red = red
+                    taskVC.green = green
+                    taskVC.blue = blue
+                    taskVC.categoryTitle = categoryTitle
                 }
             }
         }
@@ -110,17 +118,13 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         var category = Category()
         category = savedCategories[indexPath.row]
         
- //       let numberOfCat = category.numberOfCategory
+        red = category.redColor
+        green = category.greenColor
+        blue = category.blueColor
         
- //       savedTasks = realm.objects(Task.self).filter("numberOfCategory == \(numberOfCat)")
-//        if savedTasks.isEmpty != true {
-//            var task = Task()
-//            task = savedTasks[indexPath.row]
-//
-//            idd = task.ID
-//        }
-
         num = category.numberOfCategory
+        
+        categoryTitle = category.name
 
 
         self.performSegue(withIdentifier: "showTasks", sender: self)
@@ -159,30 +163,3 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
     }
     
 }
-//extension UIButton {
-//    
-//    func startAnimatingPressActions() {
-//        addTarget(self, action: #selector(animateDown), for: [.touchDown, .touchDragEnter])
-//        addTarget(self, action: #selector(animateUp), for: [.touchDragExit, .touchCancel, .touchUpInside, .touchUpOutside])
-//    }
-//    
-//    @objc private func animateDown(sender: UIButton) {
-//        animate(sender, transform: CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95))
-//    }
-//    
-//    @objc private func animateUp(sender: UIButton) {
-//        animate(sender, transform: .identity)
-//    }
-//    
-//    private func animate(_ button: UIButton, transform: CGAffineTransform) {
-//        UIView.animate(withDuration: 0.4,
-//                       delay: 0,
-//                       usingSpringWithDamping: 0.5,
-//                       initialSpringVelocity: 3,
-//                       options: [.curveEaseInOut],
-//                       animations: {
-//                        button.transform = transform
-//            }, completion: nil)
-//    }
-//    
-//}

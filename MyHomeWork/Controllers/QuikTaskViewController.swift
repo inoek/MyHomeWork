@@ -68,7 +68,7 @@ class QuikTaskViewController: UIViewController {
                 
 
             
-            let newTask = Task(ID: taskID + 1, name: titleTextField.text!, definision: definisionTextField.text!, numberOfCategory: 1)
+            let newTask = Task(ID: taskID + 1, name: titleTextField.text!, definision: definisionTextField.text!, numberOfCategory: 1, completed: false)
                 
                 StorageManager.saveTask(newTask)
             

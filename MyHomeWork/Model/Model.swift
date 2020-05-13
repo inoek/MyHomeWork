@@ -32,12 +32,14 @@ class Task: Object {
     @objc dynamic var name = ""
     @objc dynamic var definision = ""
     @objc dynamic var numberOfCategory: Int = 0
-    convenience init(ID: Int, name: String, definision: String, numberOfCategory: Int) {//инициализатор модели
+    @objc dynamic var completed = false
+    convenience init(ID: Int, name: String, definision: String, numberOfCategory: Int, completed: Bool) {//инициализатор модели
         self.init()//вызываем инициализатор класса
         self.ID = ID
         self.name = name
         self.definision = definision
         self.numberOfCategory = numberOfCategory
+        self.completed = completed
     }
 }
 
