@@ -76,10 +76,10 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jQ-1K-8d7">
-                                <rect key="frame" x="208" y="765" width="198" height="37"/>
+                                <rect key="frame" x="242" y="765" width="130" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="25"/>
-                                <state key="normal" title="Добавьте новое задание"/>
+                                <state key="normal" title="Быстрая задача"/>
                                 <connections>
                                     <segue destination="X0l-Vm-bhh" kind="presentation" id="7DT-DP-wuR"/>
                                 </connections>
@@ -154,9 +154,10 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4je-dk-OIc">
-                                <rect key="frame" x="283" y="755" width="111" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="257" y="755" width="137" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="25"/>
+                                <state key="normal" title="Добавить задачу"/>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="rhz-e0-sZQ" eventType="touchUpInside" id="YxY-T9-h2c"/>
                                 </connections>
@@ -511,7 +512,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X0l-Vm-bhh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nXu-mH-co1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
