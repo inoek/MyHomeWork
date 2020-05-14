@@ -40,8 +40,37 @@ class ContexTestViewController: UIViewController {
         imageView.addInteraction(interaction)
         imageView.isUserInteractionEnabled = true
         
-        }
-        
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+                
+            }
+            
+            
+            @objc func keyboardWillShow(notification: NSNotification) {
+                if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                    if self.view.frame.origin.y == 0 {
+                        self.view.frame.origin.y -= 150 //keyboardSize.height / 2
+                        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+                                self.imageView.alpha = 0
+                            
+                        }, completion: nil)
+
+                    }
+                }
+            }
+            
+            @objc func keyboardWillHide(notification: NSNotification) {
+                if self.view.frame.origin.y != 0 {
+                    self.view.frame.origin.y = 0
+                    
+                    UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+                            self.imageView.alpha = 1
+                    }, completion: nil)
+                    
+                    
+
+                }
+            }
 
     @IBAction func saveTask(_ sender: UIButton) {
         

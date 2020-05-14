@@ -52,9 +52,7 @@ class QuikTaskViewController: UIViewController {
         @objc func keyboardWillShow(notification: NSNotification) {
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 if self.view.frame.origin.y == 0 {
-                    self.view.frame.origin.y -= keyboardSize.height / 2
-
-
+                    self.view.frame.origin.y -= 150//keyboardSize.height / 2
                 }
             }
         }
@@ -62,9 +60,6 @@ class QuikTaskViewController: UIViewController {
         @objc func keyboardWillHide(notification: NSNotification) {
             if self.view.frame.origin.y != 0 {
                 self.view.frame.origin.y = 0
-
-
-
             }
         }
     
