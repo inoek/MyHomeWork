@@ -28,7 +28,7 @@ class Category: Object {
 }
 
 class Task: Object {
-    @objc dynamic var ID = 1
+    @objc dynamic var ID = 0
     @objc dynamic var name = ""
     @objc dynamic var definision = ""
     @objc dynamic var numberOfCategory: Int = 0

@@ -69,9 +69,9 @@ class QuikTaskViewController: UIViewController {
         if titleTextField.text != "" || definisionTextViewOutlet.text != "" {
 
 
-                var task = Task()
+           //     var task = Task()
             
-            var taskID = savedTasks.count
+            let taskID = savedTasks.count
 
                 
 

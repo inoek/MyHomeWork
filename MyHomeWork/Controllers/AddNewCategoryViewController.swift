@@ -68,7 +68,7 @@ class AddNewCategoryViewController: UIViewController {
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         if subtitleLabel.text != "" {
             
-            var category = Category()
+         //   var category = Category()
             var countOfCategory: Int = 0
             //            for i in savedCategories {
             //                countOfCategory = i.numberOfCategory

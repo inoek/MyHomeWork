@@ -58,7 +58,7 @@ class TasksViewController: UIViewController, updateTable {
         if number > 0 {
             let    currentTasks = realm.objects(Task.self)
             
-            var taskID = currentTasks.count
+            let taskID = currentTasks.count
             
             
             let newTask = Task(ID: taskID + 1, name: "Нажмите сюда...", definision: "", numberOfCategory: number, completed: false)

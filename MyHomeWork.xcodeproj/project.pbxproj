@@ -441,6 +441,7 @@
 			baseConfigurationReference = 4CC82FD6FEAB4C382857AB54 /* Pods-MyHomeWork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GN2C6T5XR7;
 				INFOPLIST_FILE = MyHomeWork/Info.plist;
@@ -460,6 +461,7 @@
 			baseConfigurationReference = A00111611EEA650F1788011C /* Pods-MyHomeWork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GN2C6T5XR7;
 				INFOPLIST_FILE = MyHomeWork/Info.plist;
