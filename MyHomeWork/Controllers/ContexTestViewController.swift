@@ -15,8 +15,8 @@ class ContexTestViewController: UIViewController {
     
     var delegate: updateTable?
     
+    @IBOutlet weak var defenisionTextViewOutlet: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var definisionTextField: UITextField!
     
     var titleTask = ""
     var definisionTask = ""
@@ -32,7 +32,7 @@ class ContexTestViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         titleTextField.text = titleTask
-        definisionTextField.text = definisionTask
+        defenisionTextViewOutlet.text = definisionTask
         
         currentTask = realm.objects(Task.self).filter("ID == \(id)")
         
@@ -51,7 +51,8 @@ class ContexTestViewController: UIViewController {
         if let task = currentTask.first {
             try! realm.write {
                 task.name = titleTextField.text ?? ""
-                task.definision = definisionTextField.text ?? ""
+                task.definision = defenisionTextViewOutlet.text ?? ""
+                task.date = Date()
             }
             dismiss(animated: true, completion: nil)
         }
@@ -63,6 +64,17 @@ class ContexTestViewController: UIViewController {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
 
 extension ContexTestViewController: UIContextMenuInteractionDelegate {
     func createContextMenu() -> UIMenu {

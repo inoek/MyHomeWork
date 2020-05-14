@@ -13,8 +13,9 @@ class QuikTaskViewController: UIViewController {
 
     
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var definisionTextViewOutlet: UITextView!
     
-    @IBOutlet weak var definisionTextField: UITextField!
+
     
     private var savedCategories: Results<Category>!
     
@@ -23,12 +24,17 @@ class QuikTaskViewController: UIViewController {
     
     var catNum = 0
 
-
+    
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        
+        
+
         
         savedCategories = realm.objects(Category.self)
         
@@ -47,6 +53,8 @@ class QuikTaskViewController: UIViewController {
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 if self.view.frame.origin.y == 0 {
                     self.view.frame.origin.y -= keyboardSize.height / 2
+
+
                 }
             }
         }
@@ -54,11 +62,16 @@ class QuikTaskViewController: UIViewController {
         @objc func keyboardWillHide(notification: NSNotification) {
             if self.view.frame.origin.y != 0 {
                 self.view.frame.origin.y = 0
+
+
+
             }
         }
+    
+
     @IBAction func addButtonTapped(_ sender: UIButton) {
         
-        if titleTextField.text != "" || definisionTextField.text != "" {
+        if titleTextField.text != "" || definisionTextViewOutlet.text != "" {
 
 
                 var task = Task()
@@ -68,7 +81,7 @@ class QuikTaskViewController: UIViewController {
                 
 
             
-            let newTask = Task(ID: taskID + 1, name: titleTextField.text!, definision: definisionTextField.text!, numberOfCategory: 1, completed: false)
+            let newTask = Task(ID: taskID + 1, name: titleTextField.text!, definision: definisionTextViewOutlet.text!, numberOfCategory: 1, completed: false)
                 
                 StorageManager.saveTask(newTask)
             

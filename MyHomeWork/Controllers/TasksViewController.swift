@@ -49,6 +49,7 @@ class TasksViewController: UIViewController, updateTable {
         categoryLabel.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 0.6)
         categoryLabel.text = categoryTitle
         
+        table.tableFooterView = UIView()
         
         //table.register(NewTaskTableViewCell.self, forCellReuseIdentifier: "editTasks")
     }
@@ -67,6 +68,7 @@ class TasksViewController: UIViewController, updateTable {
         }
     }
     
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editTasks" {
             if let editVC = segue.destination as? ContexTestViewController {
@@ -99,7 +101,18 @@ extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
         task = savedTasks[indexPath.row]
         
         cell3.titleLabel.text = task.name
-        cell3.definisionLabel.text = task.definision
+       // cell3.definisionLabel.text = task.definision
+        
+        let stringData = task.date
+ 
+        let df = DateFormatter()
+        df.dateFormat = "dd MMM yyyy г., HH:mm"
+        df.locale = Locale(identifier: "ru_Ru")
+        let now = df.string(from: stringData)
+        
+        cell3.definisionLabel.text = "Последнее редактирование: \(now)"
+        
+        
         if task.completed {
             cell3.completeImageView.alpha = 0.3
         } else if task.completed == false {
