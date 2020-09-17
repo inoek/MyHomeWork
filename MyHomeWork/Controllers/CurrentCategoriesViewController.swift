@@ -29,6 +29,7 @@ class CurrentCategoriesViewController: UIViewController {
         super.viewDidLoad()
         
         savedCategories = realm.objects(Category.self)
+        savedTasks = realm.objects(Task.self)
         
 //        if let font = UIFont(name: "DIN Condensed", size: 22) {
 //
