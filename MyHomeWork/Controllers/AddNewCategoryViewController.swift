@@ -12,7 +12,8 @@ import RealmSwift
 class AddNewCategoryViewController: UIViewController {
     
     private var savedCategories: Results<Category>!
-    
+//    private var savedCategories2: Results<Category>!
+        
     var redColor: Float = 0.5
     var greenColor: Float = 0.0
     var blueColor: Float = 0.5
@@ -28,7 +29,8 @@ class AddNewCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+//        savedCategories2 = realm.objects(Category.self).filter("numberOfCategory")
+//        print(savedCategories2)
         
         savedCategories = realm.objects(Category.self)
         
@@ -49,7 +51,7 @@ class AddNewCategoryViewController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height / 2
+                self.view.frame.origin.y -= keyboardSize.height / 1
             }
         }
     }
@@ -68,17 +70,24 @@ class AddNewCategoryViewController: UIViewController {
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         if subtitleLabel.text != "" {
             
-         //   var category = Category()
-            var countOfCategory: Int = 0
+          //  var category = Category()
+            var category = 0
+            for i in savedCategories {
+                category = i.numberOfCategory
+                print("Уже есть категория с идентификатором: \(category)")
+            }
+            var indexOfLastElement: Int = 0
             //            for i in savedCategories {
             //                countOfCategory = i.numberOfCategory
             //            }
-            countOfCategory = savedCategories.count
+         //   countOfCategory = savedCategories.count
+            indexOfLastElement = savedCategories.endIndex
+            print("Создаём категорию с идентификатором \(indexOfLastElement + 1)")
+            let newTask = Category(name: subtitleLabel.text!, redColor: redColor, greenColor: greenColor, blueColor: blueColor, numberOfCategory: category + 1)
             
-            let newTask = Category(name: subtitleLabel.text!, redColor: redColor, greenColor: greenColor, blueColor: blueColor, numberOfCategory: countOfCategory + 1)
             
             StorageManager.saveObject(newTask)
-            
+
         }
         
     }

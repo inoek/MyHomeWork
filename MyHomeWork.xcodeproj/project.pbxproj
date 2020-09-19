@@ -16,14 +16,13 @@
 		E55BC81F246731940014DA4C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81E246731940014DA4C /* StorageManager.swift */; };
 		E55EAECD2465E53B00F1292F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAECC2465E53B00F1292F /* AppDelegate.swift */; };
 		E55EAECF2465E53B00F1292F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAECE2465E53B00F1292F /* SceneDelegate.swift */; };
-		E55EAED12465E53B00F1292F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAED02465E53B00F1292F /* ViewController.swift */; };
 		E55EAED42465E53B00F1292F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55EAED22465E53B00F1292F /* Main.storyboard */; };
 		E55EAED62465E54400F1292F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E55EAED52465E54400F1292F /* Assets.xcassets */; };
 		E55EAED92465E54400F1292F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55EAED72465E54400F1292F /* LaunchScreen.storyboard */; };
 		E55EAEE12465E98F00F1292F /* CurrentTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAEE02465E98F00F1292F /* CurrentTasks.swift */; };
 		E55EAEE32465E9EA00F1292F /* TransitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAEE22465E9EA00F1292F /* TransitViewController.swift */; };
 		E55EAEE72465ED8D00F1292F /* CurrentCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55EAEE62465ED8D00F1292F /* CurrentCategoriesViewController.swift */; };
-		E582642F24B10FF20028A170 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E582642F24B10FF20028A170 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E59F52CC246A947F0054B6DA /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59F52CB246A947F0054B6DA /* TasksTableViewCell.swift */; };
 		E5C69F0B24697DA100314E73 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C69F0A24697DA100314E73 /* TasksViewController.swift */; };
 		E5C69F0D24698A7E00314E73 /* NewTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C69F0C24698A7E00314E73 /* NewTaskTableViewCell.swift */; };
@@ -36,7 +35,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E582642F24B10FF20028A170 /* BuildFile in Embed Frameworks */,
+				E582642F24B10FF20028A170 /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,7 +55,6 @@
 		E55EAEC92465E53B00F1292F /* MyHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E55EAECC2465E53B00F1292F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E55EAECE2465E53B00F1292F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E55EAED02465E53B00F1292F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E55EAED32465E53B00F1292F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E55EAED52465E54400F1292F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E55EAED82465E54400F1292F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -140,6 +138,7 @@
 		E58B9B122468467D00D3D302 /* Supported Files */ = {
 			isa = PBXGroup;
 			children = (
+				E55EAEE02465E98F00F1292F /* CurrentTasks.swift */,
 				E55EAECC2465E53B00F1292F /* AppDelegate.swift */,
 				E55EAECE2465E53B00F1292F /* SceneDelegate.swift */,
 				E55EAED22465E53B00F1292F /* Main.storyboard */,
@@ -161,8 +160,6 @@
 		E58B9B14246846A500D3D302 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E55EAED02465E53B00F1292F /* ViewController.swift */,
-				E55EAEE02465E98F00F1292F /* CurrentTasks.swift */,
 				E55EAEE62465ED8D00F1292F /* CurrentCategoriesViewController.swift */,
 				E55BC81A246728FD0014DA4C /* AddNewCategoryViewController.swift */,
 				E50A65E124696ADA00C659FD /* QuikTaskViewController.swift */,
@@ -300,7 +297,6 @@
 			files = (
 				E55BC81D24672AB30014DA4C /* Model.swift in Sources */,
 				E5C69F0D24698A7E00314E73 /* NewTaskTableViewCell.swift in Sources */,
-				E55EAED12465E53B00F1292F /* ViewController.swift in Sources */,
 				E55EAEE32465E9EA00F1292F /* TransitViewController.swift in Sources */,
 				E55EAECD2465E53B00F1292F /* AppDelegate.swift in Sources */,
 				E55BC819246724CA0014DA4C /* CustomTableViewCell.swift in Sources */,

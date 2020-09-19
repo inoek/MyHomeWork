@@ -75,7 +75,6 @@ class ContexTestViewController: UIViewController {
     @IBAction func saveTask(_ sender: UIButton) {
         
        // var taskID = savedTasks.count
-        
 
         if let task = currentTask.first {
             try! realm.write {
@@ -95,23 +94,24 @@ class ContexTestViewController: UIViewController {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 extension ContexTestViewController: UIContextMenuInteractionDelegate {
     func createContextMenu() -> UIMenu {
     let shareAction = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { _ in
     print("Share")
+        let image = self.imageView.image
+        let imageToShare = [ image! ]
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
     }
     let copy = UIAction(title: "Copy", image: UIImage(systemName: "doc.on.doc")) { _ in
     print("Copy")
+        UIPasteboard.general.image = self.imageView.image
     }
     let saveToPhotos = UIAction(title: "Add To Photos", image: UIImage(systemName: "photo")) { _ in
     print("Save to Photos")

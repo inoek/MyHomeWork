@@ -28,6 +28,8 @@ class CurrentCategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
         savedCategories = realm.objects(Category.self)
         savedTasks = realm.objects(Task.self)
         

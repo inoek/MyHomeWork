@@ -56,15 +56,16 @@ class TasksViewController: UIViewController, updateTable {
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
         if number > 0 {
-            let    currentTasks = realm.objects(Task.self)
+            let currentTasks = realm.objects(Task.self)
             
-            let taskID = currentTasks.count
+            let taskID = currentTasks.endIndex
             
             
             let newTask = Task(ID: taskID + 1, name: "Нажмите сюда...", definision: "", numberOfCategory: number, completed: false)
             
             StorageManager.saveTask(newTask)
             table.reloadData()
+            print("Добавляем задачу в категорию: \(number)")
         }
     }
     

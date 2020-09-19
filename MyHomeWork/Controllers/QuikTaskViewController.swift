@@ -32,10 +32,7 @@ class QuikTaskViewController: UIViewController {
         super.viewDidLoad()
         
 
-        
-        
 
-        
         savedCategories = realm.objects(Category.self)
         
         savedTasks = realm.objects(Task.self)
