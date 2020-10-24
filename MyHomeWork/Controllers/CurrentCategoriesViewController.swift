@@ -13,6 +13,7 @@ class CurrentCategoriesViewController: UIViewController {
     
     private var savedCategories: Results<Category>!
     private var savedTasks: Results<Task>!
+    var alert: UIAlertController! = nil
     
     var num = 0
     var idd = 0
@@ -28,17 +29,11 @@ class CurrentCategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
         savedCategories = realm.objects(Category.self)
         savedTasks = realm.objects(Task.self)
-        
-//        if let font = UIFont(name: "DIN Condensed", size: 22) {
-//
-//            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font]
-//
-//        }
-        
+
         if savedCategories.isEmpty {
             let defaultCategory = Category(name: "Неподшитые записи", redColor: 1.0, greenColor: 1.0, blueColor: 0.0, numberOfCategory: 1)
             
@@ -64,7 +59,7 @@ class CurrentCategoriesViewController: UIViewController {
         if segue.identifier == "showTasks" {
             if let taskVC = segue.destination as? TasksViewController {
                 if num > 0 {
-                   taskVC.number = num
+                    taskVC.number = num
                     taskVC.red = red
                     taskVC.green = green
                     taskVC.blue = blue
@@ -74,6 +69,9 @@ class CurrentCategoriesViewController: UIViewController {
         }
     }
     
+    @IBAction func createQuickTaskTapped(_ sender: UIButton) {
+        showAlert()
+    }
     
     
 }
@@ -98,6 +96,7 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
+        
         var category = Category()
         category = savedCategories[indexPath.row]
         
@@ -121,6 +120,8 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         var category = Category()
         category = savedCategories[indexPath.row]
         
+        
+        
         red = category.redColor
         green = category.greenColor
         blue = category.blueColor
@@ -128,8 +129,8 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         num = category.numberOfCategory
         
         categoryTitle = category.name
-
-
+        
+        
         self.performSegue(withIdentifier: "showTasks", sender: self)
     }
     
@@ -141,7 +142,7 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         
         savedTasks = realm.objects(Task.self).filter("numberOfCategory == \(numberOfCat)")
         var task = [Task]()
-
+        
         for i in savedTasks {
             task.append(i)
         }
@@ -151,7 +152,7 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         
         let delete = UIContextualAction(style: .normal, title: "Удалить") { (_, _, _) in
             StorageManager.deleteObject(category)
-           // StorageManager.deleteTask(task)
+            // StorageManager.deleteTask(task)
             try! realm.write {
                 realm.delete(task)
             }
@@ -166,3 +167,40 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
     }
     
 }
+
+//MARK: -Create Alert Controller For Add Quick Task
+extension CurrentCategoriesViewController {
+    
+    
+    private func showAlert() {
+        // var test: String
+        
+        alert = UIAlertController(title: "Введите задачу", message: "", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Введите ваш текст"
+        }
+        let addTask = UIAlertAction(title: "Добавить", style: .default) { (button) in
+            guard let text = self.alert.textFields!.first?.text else { return }
+            if text != "" {
+                let taskID = self.savedTasks.count
+                
+                let newTask = Task(ID: taskID + 1, name: text, definision: "", numberOfCategory: 1, completed: false)
+                
+                StorageManager.saveTask(newTask)
+            }
+        }
+        
+        let cancel = UIAlertAction(title: "Отмена", style: .destructive, handler: nil)
+        
+        let heightOfTheAlert = NSLayoutConstraint(item: alert.view!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 150)
+        alert.view.addConstraint(heightOfTheAlert)
+        
+        alert.addAction(addTask)
+        
+        alert.addAction(cancel)
+        present(alert, animated: true)
+
+    }
+    
+}
+

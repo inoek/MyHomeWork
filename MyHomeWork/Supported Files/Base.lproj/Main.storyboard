@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,13 +37,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hPe-BD-TfR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hPe-BD-TfR">
                                 <rect key="frame" x="0.0" y="88" width="414" height="659"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" systemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="659" id="LTD-TB-C02"/>
                                 </constraints>
+                                <color key="separatorColor" systemColor="labelColor"/>
+                                <inset key="separatorInset" minX="20" minY="0.0" maxX="10" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="b54-Rt-cBJ" customClass="CustomTableViewCell" customModule="MyHomeWork" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
@@ -80,11 +82,11 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jQ-1K-8d7">
-                                <rect key="frame" x="249" y="766" width="130" height="37"/>
+                                <rect key="frame" x="264" y="765" width="130" height="28"/>
                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="25"/>
                                 <state key="normal" title="Быстрая задача"/>
                                 <connections>
-                                    <segue destination="X0l-Vm-bhh" kind="presentation" id="7DT-DP-wuR"/>
+                                    <action selector="createQuickTaskTapped:" destination="peE-a4-PhO" eventType="touchUpInside" id="Bu0-MO-7bi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -93,9 +95,11 @@
                         <constraints>
                             <constraint firstItem="NIY-Y4-KNQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8jQ-1K-8d7" secondAttribute="trailing" id="EKi-fl-Fy3"/>
                             <constraint firstAttribute="trailing" secondItem="hPe-BD-TfR" secondAttribute="trailing" id="FRh-G9-LkP"/>
-                            <constraint firstItem="NIY-Y4-KNQ" firstAttribute="bottom" secondItem="8jQ-1K-8d7" secondAttribute="bottom" constant="10" id="Pr5-e1-R05"/>
+                            <constraint firstItem="NIY-Y4-KNQ" firstAttribute="bottom" secondItem="8jQ-1K-8d7" secondAttribute="bottom" constant="20" id="Pr5-e1-R05"/>
+                            <constraint firstItem="8jQ-1K-8d7" firstAttribute="top" secondItem="hPe-BD-TfR" secondAttribute="bottom" constant="18" id="gky-RA-zVu"/>
                             <constraint firstItem="hPe-BD-TfR" firstAttribute="leading" secondItem="NIY-Y4-KNQ" secondAttribute="leading" id="iF4-rr-bFB"/>
-                            <constraint firstItem="8jQ-1K-8d7" firstAttribute="leading" secondItem="NIY-Y4-KNQ" secondAttribute="leading" constant="249" id="j2b-3E-fnD"/>
+                            <constraint firstItem="NIY-Y4-KNQ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8jQ-1K-8d7" secondAttribute="trailing" id="p1x-iD-ytn"/>
+                            <constraint firstItem="NIY-Y4-KNQ" firstAttribute="trailing" secondItem="8jQ-1K-8d7" secondAttribute="trailing" constant="20" id="uZU-YV-arh"/>
                             <constraint firstItem="hPe-BD-TfR" firstAttribute="top" secondItem="NIY-Y4-KNQ" secondAttribute="top" id="xSG-E6-0dq"/>
                         </constraints>
                     </view>
@@ -124,7 +128,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tbA-fK-SS0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tbA-fK-SS0">
                                 <rect key="frame" x="0.0" y="136" width="414" height="595"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -187,7 +191,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4je-dk-OIc">
-                                <rect key="frame" x="257" y="755" width="137" height="37"/>
+                                <rect key="frame" x="257" y="749" width="137" height="43"/>
                                 <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="25"/>
                                 <state key="normal" title="Добавить задачу"/>
                                 <connections>
@@ -208,10 +212,10 @@
                             <constraint firstItem="NcC-IJ-w8N" firstAttribute="trailing" secondItem="tbA-fK-SS0" secondAttribute="trailing" id="Ddh-lh-6bG"/>
                             <constraint firstItem="tbA-fK-SS0" firstAttribute="leading" secondItem="V8I-QT-Skn" secondAttribute="leading" id="IG2-d0-QcC"/>
                             <constraint firstItem="V8I-QT-Skn" firstAttribute="bottom" secondItem="tbA-fK-SS0" secondAttribute="bottom" constant="82" id="KDk-4c-Cdw"/>
-                            <constraint firstItem="4je-dk-OIc" firstAttribute="leading" secondItem="V8I-QT-Skn" secondAttribute="leading" constant="257" id="Q7h-wk-c2k"/>
                             <constraint firstItem="tbA-fK-SS0" firstAttribute="centerX" secondItem="9fr-nj-x04" secondAttribute="centerX" id="TGw-gz-Rld"/>
                             <constraint firstItem="V8I-QT-Skn" firstAttribute="bottom" secondItem="4je-dk-OIc" secondAttribute="bottom" constant="21" id="Tyo-1I-6Wb"/>
                             <constraint firstItem="tbA-fK-SS0" firstAttribute="top" secondItem="9fr-nj-x04" secondAttribute="topMargin" constant="48" id="Ymy-b9-Kvb"/>
+                            <constraint firstItem="4je-dk-OIc" firstAttribute="top" secondItem="tbA-fK-SS0" secondAttribute="bottom" constant="18" id="bnG-Hm-9fx"/>
                             <constraint firstItem="NcC-IJ-w8N" firstAttribute="leading" secondItem="tbA-fK-SS0" secondAttribute="leading" id="dY6-8O-kbO"/>
                             <constraint firstItem="V8I-QT-Skn" firstAttribute="trailing" secondItem="4je-dk-OIc" secondAttribute="trailing" constant="20" id="jtk-E9-qmt"/>
                             <constraint firstItem="NcC-IJ-w8N" firstAttribute="top" secondItem="V8I-QT-Skn" secondAttribute="top" id="lPA-pc-OBW"/>
@@ -536,16 +540,16 @@
             <objects>
                 <viewController id="f9f-zo-aRD" customClass="QuikTaskViewController" customModule="MyHomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CnO-LN-8l0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Название" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="1P4-zs-cBd">
-                                <rect key="frame" x="20" y="540" width="374" height="34"/>
+                                <rect key="frame" x="20" y="594" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KVA-0a-x8B">
-                                <rect key="frame" x="20" y="221" width="374" height="311"/>
+                                <rect key="frame" x="20" y="275" width="374" height="311"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="311" id="8qm-wu-S3N"/>
@@ -555,7 +559,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIJ-vr-BJM">
-                                <rect key="frame" x="271" y="576" width="123" height="47"/>
+                                <rect key="frame" x="271" y="630" width="123" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="zOS-WB-jF5"/>
                                 </constraints>
@@ -658,7 +662,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X0l-Vm-bhh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nXu-mH-co1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
