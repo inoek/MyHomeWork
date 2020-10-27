@@ -34,6 +34,7 @@ class CurrentCategoriesViewController: UIViewController {
         savedCategories = realm.objects(Category.self)
         savedTasks = realm.objects(Task.self)
 
+        
         if savedCategories.isEmpty {
             let defaultCategory = Category(name: "Неподшитые записи", redColor: 1.0, greenColor: 1.0, blueColor: 0.0, numberOfCategory: 1)
             
@@ -182,9 +183,11 @@ extension CurrentCategoriesViewController {
         let addTask = UIAlertAction(title: "Добавить", style: .default) { (button) in
             guard let text = self.alert.textFields!.first?.text else { return }
             if text != "" {
-                let taskID = self.savedTasks.count
+                let taskID = StorageManager.autoIncrement(id: self.savedTasks.count)
                 
-                let newTask = Task(ID: taskID + 1, name: text, definision: "", numberOfCategory: 1, completed: false)
+                let identifier = UUID().uuidString
+                
+                let newTask = Task(ID: identifier, name: text, definision: "", numberOfCategory: 1, completed: false)
                 
                 StorageManager.saveTask(newTask)
             }

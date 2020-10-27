@@ -23,7 +23,7 @@ class TasksViewController: UIViewController, updateTable {
     
     
     var number = 0
-    var id = 0
+    var id: String = ""
     var categoryOfEditingTask = 0
     
     var titleOfTask: String = ""
@@ -54,14 +54,19 @@ class TasksViewController: UIViewController, updateTable {
         //table.register(NewTaskTableViewCell.self, forCellReuseIdentifier: "editTasks")
     }
     
+    //MARK: -Add Task
     @IBAction func addButtonTapped(_ sender: UIButton) {
         if number > 0 {
             let currentTasks = realm.objects(Task.self)
             
-            let taskID = currentTasks.endIndex
+            //var taskID = currentTasks.endIndex
+            
+            let taskID = StorageManager.autoIncrement(id: currentTasks.endIndex)
+            
+            let identifier = UUID().uuidString
             
             
-            let newTask = Task(ID: taskID + 1, name: "Нажмите сюда...", definision: "", numberOfCategory: number, completed: false)
+            let newTask = Task(ID: identifier, name: "Нажмите сюда...", definision: "", numberOfCategory: number, completed: false)
             
             StorageManager.saveTask(newTask)
             table.reloadData()
@@ -140,6 +145,7 @@ extension TasksViewController: UITableViewDelegate ,UITableViewDataSource {
         
         titleOfTask = task.name
         definision = task.definision
+        print(task.ID, id)
         id = task.ID
         categoryOfEditingTask = task.numberOfCategory
         

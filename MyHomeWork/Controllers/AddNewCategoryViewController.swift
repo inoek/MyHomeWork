@@ -66,16 +66,16 @@ class AddNewCategoryViewController: UIViewController {
     
     
     
-    
+    //MARK: -Add Category
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         if subtitleLabel.text != "" {
             
           //  var category = Category()
-            var category = 0
-            for i in savedCategories {
-                category = i.numberOfCategory
-                print("Уже есть категория с идентификатором: \(category)")
-            }
+            let category = StorageManager.autoIncrement(id: savedCategories.endIndex)
+//            for i in savedCategories {
+//                category = i.numberOfCategory
+//                print("Уже есть категория с идентификатором: \(category)")
+//            }
             var indexOfLastElement: Int = 0
             //            for i in savedCategories {
             //                countOfCategory = i.numberOfCategory
@@ -83,7 +83,7 @@ class AddNewCategoryViewController: UIViewController {
          //   countOfCategory = savedCategories.count
             indexOfLastElement = savedCategories.endIndex
             print("Создаём категорию с идентификатором \(indexOfLastElement + 1)")
-            let newTask = Category(name: subtitleLabel.text!, redColor: redColor, greenColor: greenColor, blueColor: blueColor, numberOfCategory: category + 1)
+            let newTask = Category(name: subtitleLabel.text!, redColor: redColor, greenColor: greenColor, blueColor: blueColor, numberOfCategory: category)
             
             
             StorageManager.saveObject(newTask)

@@ -15,6 +15,10 @@ class Category: Object {
     @objc dynamic var greenColor: Float = 0.0
     @objc dynamic var blueColor: Float = 0.0
     @objc dynamic var numberOfCategory: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "numberOfCategory"
+      }
 
     convenience init(name: String, redColor: Float, greenColor: Float, blueColor: Float, numberOfCategory: Int) {//инициализатор модели
         self.init()//вызываем инициализатор класса
@@ -28,13 +32,18 @@ class Category: Object {
 }
 
 class Task: Object {
-    @objc dynamic var ID = 0
+    @objc dynamic var ID = UUID().uuidString
     @objc dynamic var name = ""
     @objc dynamic var definision = ""
     @objc dynamic var numberOfCategory: Int = 0
     @objc dynamic var date = Date()
     @objc dynamic var completed = false
-    convenience init(ID: Int, name: String, definision: String, numberOfCategory: Int, completed: Bool) {//инициализатор модели
+    
+    override static func primaryKey() -> String? {
+        return "ID"
+      }
+    
+    convenience init(ID: String, name: String, definision: String, numberOfCategory: Int, completed: Bool) {//инициализатор модели
         self.init()//вызываем инициализатор класса
         self.ID = ID
         self.name = name
@@ -43,5 +52,6 @@ class Task: Object {
         self.completed = completed
     }
 }
+
 
 

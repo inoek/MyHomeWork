@@ -35,4 +35,10 @@ class StorageManager {
             realm.delete(task)
         }
     }
+    
+    static func autoIncrement(id: Int) -> Int {
+//        let randomInt = Int.random(in: 1..<30)
+//        return id * randomInt + 1
+        return id + 1
+    }
 }
