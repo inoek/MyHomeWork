@@ -30,10 +30,10 @@ class CurrentCategoriesViewController: UIViewController {
         super.viewDidLoad()
         
         
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        //        print(Realm.Configuration.defaultConfiguration.fileURL!)
         savedCategories = realm.objects(Category.self)
         savedTasks = realm.objects(Task.self)
-
+        
         
         if savedCategories.isEmpty {
             let defaultCategory = Category(name: "Неподшитые записи", redColor: 1.0, greenColor: 1.0, blueColor: 0.0, numberOfCategory: 1)
@@ -98,6 +98,8 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
         
+        
+        
         var category = Category()
         category = savedCategories[indexPath.row]
         
@@ -108,12 +110,24 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         
         //cell.textLabel?.text = "w"
         
+        let viewSeparatorLine = UIView(frame:CGRect(x: 0, y: cell.contentView.frame.size.height + 8.0, width: cell.contentView.frame.size.width, height: 8))
+        cell.contentView.addSubview(viewSeparatorLine)
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let verticalPadding: CGFloat = 12
+        
+        let maskLayer = CALayer()
+        maskLayer.cornerRadius = 20
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+        cell.layer.mask = maskLayer
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 75
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -167,6 +181,7 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         return UISwipeActionsConfiguration(actions: [delete])
     }
     
+
 }
 
 //MARK: -Create Alert Controller For Add Quick Task
@@ -202,8 +217,9 @@ extension CurrentCategoriesViewController {
         
         alert.addAction(cancel)
         present(alert, animated: true)
-
+        
     }
     
 }
+
 

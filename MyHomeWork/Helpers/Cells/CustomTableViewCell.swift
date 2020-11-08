@@ -12,6 +12,7 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    
 
     
 

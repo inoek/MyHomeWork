@@ -77,22 +77,7 @@ class ContexTestViewController: UIViewController {
     //MARK: -Update Task
     @IBAction func saveTask(_ sender: UIButton) {
         
-        // var taskID = savedTasks.count
-//        var qq = Task()
-//        for i in currentTask {
-//            if i.ID == id {
-//                qq = i
-//            }
-//        }
 
-        
-//        for i in currentTask {
-//            if i.ID == id {
-//             task = i
-//            }
-//        }
-        
-        //let myPrimaryKey = id
         
         guard let task = realm.object(ofType: Task.self, forPrimaryKey: id) else { return }
         
