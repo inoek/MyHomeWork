@@ -71,18 +71,21 @@ class AddNewCategoryViewController: UIViewController {
         if subtitleLabel.text != "" {
             
           //  var category = Category()
-            let category = StorageManager.autoIncrement(id: savedCategories.endIndex)
-//            for i in savedCategories {
-//                category = i.numberOfCategory
-//                print("Уже есть категория с идентификатором: \(category)")
-//            }
+            var category = StorageManager.autoIncrement(id: savedCategories.endIndex)
+            
+            
             var indexOfLastElement: Int = 0
             //            for i in savedCategories {
             //                countOfCategory = i.numberOfCategory
             //            }
          //   countOfCategory = savedCategories.count
             indexOfLastElement = savedCategories.endIndex
-            print("Создаём категорию с идентификатором \(indexOfLastElement + 1)")
+            print("Создаём категорию с идентификатором \(category)")
+            for i in savedCategories {
+                if category == i.numberOfCategory {
+                    category += Int.random(in: 100...1000)
+                }
+            }
             let newTask = Category(name: subtitleLabel.text!, redColor: redColor, greenColor: greenColor, blueColor: blueColor, numberOfCategory: category)
             
             

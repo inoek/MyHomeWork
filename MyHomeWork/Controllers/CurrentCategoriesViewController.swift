@@ -115,7 +115,7 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         
         return cell
     }
-    
+    //MARK: -Padding
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let verticalPadding: CGFloat = 12
         
