@@ -149,7 +149,7 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         self.performSegue(withIdentifier: "showTasks", sender: self)
     }
     
-    //удаляем объект из базы данных и интерфейса
+    //MARK: -Delete Category
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let category = savedCategories[indexPath.row]
         

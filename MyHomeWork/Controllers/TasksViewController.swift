@@ -85,7 +85,7 @@ class TasksViewController: UIViewController, updateTable {
 //MARK: -Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editTasks" {
-            if let editVC = segue.destination as? ContexTestViewController {
+            if let editVC = segue.destination as? DetailTaskViewController {
                 editVC.titleTask = titleOfTask
                 editVC.definisionTask = definision ?? ""
                 editVC.id = id

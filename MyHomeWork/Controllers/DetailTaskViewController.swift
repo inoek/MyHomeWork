@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ContexTestViewController: UIViewController {
+class DetailTaskViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -18,11 +18,14 @@ class ContexTestViewController: UIViewController {
     @IBOutlet weak var defenisionTextViewOutlet: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     var titleTask = ""
     var definisionTask = ""
     
     var id = ""
     var categoryOfEditingTask = 0
+    
+    var dayAndMonth = ""
     
     private var currentTask: Results<Task>!
     private var currentTask2: Results<Task>!
@@ -48,42 +51,25 @@ class ContexTestViewController: UIViewController {
         
     }
     
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= 150 //keyboardSize.height / 2
-                UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-                    self.imageView.alpha = 0
-                    
-                }, completion: nil)
-                
-            }
-        }
+    @IBAction func pickDate(_ sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.mm"
+        let dateToString = dateFormatter.string(from: sender.date)
+        dayAndMonth = dateToString + "  "
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-            
-            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-                self.imageView.alpha = 1
-            }, completion: nil)
-            
-            
-            
-        }
-    }
+
     //MARK: -Update Task
     @IBAction func saveTask(_ sender: UIButton) {
         
 
         
         guard let task = realm.object(ofType: Task.self, forPrimaryKey: id) else { return }
-        
+        guard let titleText = titleTextField.text else { return }
+
 
             try! realm.write {
-                task.name = titleTextField.text ?? ""
+                task.name =  dayAndMonth + titleText
                 task.definision = defenisionTextViewOutlet.text ?? ""
                 task.date = Date()
             }
@@ -99,7 +85,7 @@ class ContexTestViewController: UIViewController {
 }
 
 
-extension ContexTestViewController: UIContextMenuInteractionDelegate {
+extension DetailTaskViewController: UIContextMenuInteractionDelegate {
     func createContextMenu() -> UIMenu {
         let shareAction = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { _ in
             print("Share")
@@ -132,7 +118,7 @@ extension ContexTestViewController: UIContextMenuInteractionDelegate {
     
     
 }
-extension ContexTestViewController {
+extension DetailTaskViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddNewCategoryViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -142,4 +128,35 @@ extension ContexTestViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+}
+
+//MARK: -Hide Keyboard
+extension DetailTaskViewController {
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= 150 //keyboardSize.height / 2
+                UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+                    self.imageView.alpha = 0
+                    
+                }, completion: nil)
+                
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+            
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+                self.imageView.alpha = 1
+            }, completion: nil)
+            
+            
+            
+        }
+    }
+    
 }
