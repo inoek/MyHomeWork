@@ -38,18 +38,20 @@ class Task: Object {
     @objc dynamic var numberOfCategory: Int = 0
     @objc dynamic var date = Date()
     @objc dynamic var completed = false
+    @objc dynamic var deadline = ""
     
     override static func primaryKey() -> String? {
         return "ID"
       }
     
-    convenience init(ID: String, name: String, definision: String, numberOfCategory: Int, completed: Bool) {//инициализатор модели
+    convenience init(ID: String, name: String, definision: String, numberOfCategory: Int, completed: Bool, deadline: String) {//инициализатор модели
         self.init()//вызываем инициализатор класса
         self.ID = ID
         self.name = name
         self.definision = definision
         self.numberOfCategory = numberOfCategory
         self.completed = completed
+        self.deadline = deadline
     }
 }
 

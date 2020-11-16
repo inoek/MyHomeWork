@@ -12,7 +12,6 @@ import RealmSwift
 class AddNewCategoryViewController: UIViewController {
     
     private var savedCategories: Results<Category>!
-//    private var savedCategories2: Results<Category>!
         
     var redColor: Float = 0.5
     var greenColor: Float = 0.0
@@ -29,15 +28,10 @@ class AddNewCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        savedCategories2 = realm.objects(Category.self).filter("numberOfCategory")
-//        print(savedCategories2)
-        
         savedCategories = realm.objects(Category.self)
-        
         
         addTaskOutlet.isEnabled = false
         
-        //функция из расширения для скрытия клавиатуры
         self.hideKeyboardWhenTappedAround()
         
         subtitleLabel.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)//при редактировании поля срабатывает и вызывает textFieldChanged
@@ -48,38 +42,17 @@ class AddNewCategoryViewController: UIViewController {
     }
     
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height / 1
-            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
-    }
-    
-    
-    
-    
     
     //MARK: -Add Category
     @IBAction func addTaskButtonTapped(_ sender: UIButton) {
         if subtitleLabel.text != "" {
             
-          //  var category = Category()
             var category = StorageManager.autoIncrement(id: savedCategories.endIndex)
             
             
-            var indexOfLastElement: Int = 0
-            //            for i in savedCategories {
-            //                countOfCategory = i.numberOfCategory
-            //            }
-         //   countOfCategory = savedCategories.count
-            indexOfLastElement = savedCategories.endIndex
+//            var indexOfLastElement: Int = 0
+//
+//            indexOfLastElement = savedCategories.endIndex
             print("Создаём категорию с идентификатором \(category)")
             for i in savedCategories {
                 if category == i.numberOfCategory {
@@ -87,7 +60,6 @@ class AddNewCategoryViewController: UIViewController {
                 }
             }
             let newTask = Category(name: subtitleLabel.text!, redColor: redColor, greenColor: greenColor, blueColor: blueColor, numberOfCategory: category)
-            
             
             StorageManager.saveObject(newTask)
 
@@ -189,6 +161,23 @@ extension AddNewCategoryViewController: UITextFieldDelegate {
         } else {
             addTaskOutlet.isEnabled = false
             addTaskOutlet.alpha = 0.2
+        }
+    }
+}
+//MARK: -Show/Hide Keyboard
+extension AddNewCategoryViewController {
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height / 1
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
         }
     }
 }

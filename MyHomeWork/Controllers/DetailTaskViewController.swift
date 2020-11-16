@@ -9,13 +9,13 @@
 import UIKit
 import RealmSwift
 
-class DetailTaskViewController: UIViewController {
+class DetailTaskViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     
     var delegate: updateTable?
     
-    @IBOutlet weak var defenisionTextViewOutlet: UITextView!
+    @IBOutlet weak var definisionTextView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -35,13 +35,11 @@ class DetailTaskViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
-        
+        titleTextField.delegate = self
         titleTextField.text = titleTask
-        defenisionTextViewOutlet.text = definisionTask
         
-    //    currentTask = realm.objects(Task.self).filter("ID == \(id)")
         currentTask = realm.objects(Task.self)
-
+        
         let interaction = UIContextMenuInteraction(delegate: self)
         imageView.addInteraction(interaction)
         imageView.isUserInteractionEnabled = true
@@ -51,29 +49,34 @@ class DetailTaskViewController: UIViewController {
         
     }
     
-    @IBAction func pickDate(_ sender: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.mm"
-        let dateToString = dateFormatter.string(from: sender.date)
-        dayAndMonth = dateToString + "  "
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
-
+    @IBAction func pickDate(_ sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM"
+        let dateToString = dateFormatter.string(from: sender.date)
+        
+        dayAndMonth = dateToString
+        print(dayAndMonth)
+    }
+    
+    
     //MARK: -Update Task
     @IBAction func saveTask(_ sender: UIButton) {
-        
-
-        
+                
         guard let task = realm.object(ofType: Task.self, forPrimaryKey: id) else { return }
         guard let titleText = titleTextField.text else { return }
-
-
-            try! realm.write {
-                task.name =  dayAndMonth + titleText
-                task.definision = defenisionTextViewOutlet.text ?? ""
-                task.date = Date()
-            }
-            dismiss(animated: true, completion: nil)
+        
+        try! realm.write {
+            task.deadline  = dayAndMonth
+            task.name = titleText
+            task.definision = definisionTextView.text ?? ""
+            task.date = Date()
+        }
+        dismiss(animated: true, completion: nil)
         
         delegate?.tableReloadData()
         
@@ -92,12 +95,10 @@ extension DetailTaskViewController: UIContextMenuInteractionDelegate {
             let image = self.imageView.image
             let imageToShare = [ image! ]
             let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+            activityViewController.popoverPresentationController?.sourceView = self.view
             
-            // exclude some activity types from the list (optional)
             activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
             
-            // present the view controller
             self.present(activityViewController, animated: true, completion: nil)
         }
         let copy = UIAction(title: "Copy", image: UIImage(systemName: "doc.on.doc")) { _ in
@@ -134,7 +135,7 @@ extension DetailTaskViewController {
 extension DetailTaskViewController {
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= 150 //keyboardSize.height / 2
                 UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
@@ -160,3 +161,4 @@ extension DetailTaskViewController {
     }
     
 }
+

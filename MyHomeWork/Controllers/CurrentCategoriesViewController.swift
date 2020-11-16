@@ -41,7 +41,7 @@ class CurrentCategoriesViewController: UIViewController {
             StorageManager.saveObject(defaultCategory)
         }
         
-        //table.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
+
         table.tableFooterView = UIView()
     }
     
@@ -51,8 +51,6 @@ class CurrentCategoriesViewController: UIViewController {
     //MARK: -Navigation
     @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
         guard segue.source is AddNewCategoryViewController  else {return}
-        //        newPLaceVC.savePlace()
-        
         table.reloadData()
     }
     
@@ -69,7 +67,7 @@ class CurrentCategoriesViewController: UIViewController {
             }
         }
     }
-    
+    //MARK: -Add Quick Task
     @IBAction func createQuickTaskTapped(_ sender: UIButton) {
         showAlert()
     }
@@ -86,30 +84,19 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         return savedCategories.isEmpty ? 0 : savedCategories.count
     }
     
-    //    func colorForIndex(_ index: Int) -> UIColor {
-    //        let itemCount = savedTracks.count - 1
-    //        let val = (CGFloat(index) / CGFloat(itemCount)) * 1.6
-    //        return UIColor(red: 1.0, green: val, blue: 0.0, alpha: 1.0)
-    //    }
-    
+
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
-        
-        
-        
-        
+ 
         var category = Category()
         category = savedCategories[indexPath.row]
         
         
         cell.categoryLabel.text = category.name
-        //cell.nameLabel.text = category.name
         cell.backgroundColor = UIColor(red: CGFloat(category.redColor), green: CGFloat(category.greenColor), blue: CGFloat(category.blueColor), alpha: 0.6)
-        
-        //cell.textLabel?.text = "w"
-        
+                
         let viewSeparatorLine = UIView(frame:CGRect(x: 0, y: cell.contentView.frame.size.height + 8.0, width: cell.contentView.frame.size.width, height: 8))
         cell.contentView.addSubview(viewSeparatorLine)
         
@@ -122,7 +109,7 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         let maskLayer = CALayer()
         maskLayer.cornerRadius = 20
         maskLayer.backgroundColor = UIColor.black.cgColor
-        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding / 2)
         cell.layer.mask = maskLayer
     }
     
@@ -158,16 +145,13 @@ extension CurrentCategoriesViewController: UITableViewDelegate, UITableViewDataS
         savedTasks = realm.objects(Task.self).filter("numberOfCategory == \(numberOfCat)")
         var task = [Task]()
         
-        for i in savedTasks {
-            task.append(i)
-        }
-        
+
+        task = savedTasks.map{ $0 }
         
         guard numberOfCat > 1 else { return nil }
         
         let delete = UIContextualAction(style: .normal, title: "Удалить") { (_, _, _) in
             StorageManager.deleteObject(category)
-            // StorageManager.deleteTask(task)
             try! realm.write {
                 realm.delete(task)
             }
@@ -189,20 +173,18 @@ extension CurrentCategoriesViewController {
     
     
     private func showAlert() {
-        // var test: String
         
-        alert = UIAlertController(title: "Введите задачу", message: "", preferredStyle: .alert)
+        alert = UIAlertController(title: "Название задачи", message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "Введите ваш текст"
         }
         let addTask = UIAlertAction(title: "Добавить", style: .default) { (button) in
             guard let text = self.alert.textFields!.first?.text else { return }
             if text != "" {
-                let taskID = StorageManager.autoIncrement(id: self.savedTasks.count)
                 
                 let identifier = UUID().uuidString
                 
-                let newTask = Task(ID: identifier, name: text, definision: "", numberOfCategory: 1, completed: false)
+                let newTask = Task(ID: identifier, name: text, definision: "", numberOfCategory: 1, completed: false, deadline: "")
                 
                 StorageManager.saveTask(newTask)
             }

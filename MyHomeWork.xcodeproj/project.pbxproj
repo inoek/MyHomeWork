@@ -10,7 +10,6 @@
 		827F8B01CA05E8C4FC349146 /* Pods_MyHomeWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E602F75B8C4805F53190A8C /* Pods_MyHomeWork.framework */; };
 		D973D7A32558096800D03E42 /* ChangeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D973D7A22558096800D03E42 /* ChangeCategoryViewController.swift */; };
 		D973D7A5255813D800D03E42 /* ChangeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D973D7A4255813D800D03E42 /* ChangeCategoryTableViewCell.swift */; };
-		E50A65E224696ADA00C659FD /* QuikTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A65E124696ADA00C659FD /* QuikTaskViewController.swift */; };
 		E5264F6D246885160045A671 /* DetailTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5264F6C246885160045A671 /* DetailTaskViewController.swift */; };
 		E55BC819246724CA0014DA4C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */; };
 		E55BC81B246728FD0014DA4C /* AddNewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BC81A246728FD0014DA4C /* AddNewCategoryViewController.swift */; };
@@ -50,7 +49,6 @@
 		AECEBEBC67CFC36D6FADD002 /* Pods-MyHomeWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHomeWork.release.xcconfig"; path = "Target Support Files/Pods-MyHomeWork/Pods-MyHomeWork.release.xcconfig"; sourceTree = "<group>"; };
 		D973D7A22558096800D03E42 /* ChangeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCategoryViewController.swift; sourceTree = "<group>"; };
 		D973D7A4255813D800D03E42 /* ChangeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCategoryTableViewCell.swift; sourceTree = "<group>"; };
-		E50A65E124696ADA00C659FD /* QuikTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuikTaskViewController.swift; sourceTree = "<group>"; };
 		E5264F6C246885160045A671 /* DetailTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTaskViewController.swift; sourceTree = "<group>"; };
 		E55BC818246724CA0014DA4C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		E55BC81A246728FD0014DA4C /* AddNewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCategoryViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 			children = (
 				E55EAEE62465ED8D00F1292F /* CurrentCategoriesViewController.swift */,
 				E55BC81A246728FD0014DA4C /* AddNewCategoryViewController.swift */,
-				E50A65E124696ADA00C659FD /* QuikTaskViewController.swift */,
 				E5C69F0A24697DA100314E73 /* TasksViewController.swift */,
 				E5264F6C246885160045A671 /* DetailTaskViewController.swift */,
 				D973D7A22558096800D03E42 /* ChangeCategoryViewController.swift */,
@@ -311,7 +308,6 @@
 				E55EAEE12465E98F00F1292F /* CurrentTasks.swift in Sources */,
 				E55EAECF2465E53B00F1292F /* SceneDelegate.swift in Sources */,
 				E5264F6D246885160045A671 /* DetailTaskViewController.swift in Sources */,
-				E50A65E224696ADA00C659FD /* QuikTaskViewController.swift in Sources */,
 				E55BC81F246731940014DA4C /* StorageManager.swift in Sources */,
 				E55BC81B246728FD0014DA4C /* AddNewCategoryViewController.swift in Sources */,
 				E55EAEE72465ED8D00F1292F /* CurrentCategoriesViewController.swift in Sources */,

@@ -18,6 +18,7 @@ class TasksTableViewCell: UITableViewCell {
     @IBOutlet weak var definisionLabel: UILabel!
     @IBOutlet weak var completeImageView: UIImageView!
     
+    @IBOutlet weak var deadlineLabel: UILabel!
     
 
 }
